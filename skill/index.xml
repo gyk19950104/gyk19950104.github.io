@@ -16,7 +16,7 @@
       <pubDate>Fri, 20 Nov 2020 16:24:14 +0800</pubDate>
       
       <guid>https://gyk19950104.github.io/skill/1.%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>步骤  1.申请GitHub账号并配置ssh 2.brew安装hugo后选择主题 3.熟悉常见hugo指令 4.GitHub pages部署博客  指令 brew install hugo hugo new site blog git clone https://github.com/rmsubekti/the-roots-home.git themes/the-roots-home hugo server -t the-roots-home --buildDrafts hugo --theme=the-roots-home --baseUrl=&amp;quot;https://gyk19950104.github.io&amp;quot; --buildDrafts cd public git init </description>
+      <description>步骤  1.申请GitHub账号并配置ssh 2.brew安装hugo后选择主题 3.熟悉常见hugo指令 4.GitHub pages部署博客  指令 brew install hugo hugo new site blog git clone https://github.com/rmsubekti/the-roots-home.git themes/the-roots-home hugo server -t the-roots-home --buildDrafts hugo --theme=the-roots-home --baseUrl=&amp;quot;https://gyk19950104.github.io&amp;quot; --buildDrafts cd public git init git add . git commit -m &#39;&#39; git remote add origin https://github.com/gyk19950104/gyk19950104.github.io.git git push -u origin master 写博客 1.hugo new life/1.搭建博客.md 2.编写内容 3.运行脚本bash build.sh //build.sh #!/bin/bash hugo --theme=the-roots-home --baseUrl=&amp;quot;https://gyk19950104.github.io&amp;quot; --buildDrafts cd public git add . git commit -m &#39;+1&#39; git remote add origin https://github.</description>
     </item>
     
   </channel>
