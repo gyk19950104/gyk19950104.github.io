@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Skills on gyk&#39;s blog</title>
+    <link>https://gyk19950104.github.io/skill/</link>
+    <description>Recent content in Skills on gyk&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 20 Nov 2020 16:24:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://gyk19950104.github.io/skill/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>搭建博客</title>
+      <link>https://gyk19950104.github.io/skill/1.%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 20 Nov 2020 16:24:14 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/skill/1.%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>步骤  1.申请GitHub账号并配置ssh 2.brew安装hugo后选择主题 3.熟悉常见hugo指令 4.GitHub pages部署博客  指令 brew install hugo hugo new site blog git clone https://github.com/rmsubekti/the-roots-home.git themes/the-roots-home hugo server -t the-roots-home --buildDrafts hugo --theme=the-roots-home --baseUrl=&amp;quot;https://gyk19950104.github.io&amp;quot; --buildDrafts cd public git init </description>
+    </item>
+    
+  </channel>
+</rss>
