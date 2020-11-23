@@ -5,18 +5,21 @@
     <link>https://gyk19950104.github.io/cs/</link>
     <description>Recent content in Cs on gyk&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 20 Nov 2020 17:12:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2020 16:01:52 +0800</lastBuildDate>
     
 	<atom:link href="https://gyk19950104.github.io/cs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>1</title>
-      <link>https://gyk19950104.github.io/cs/1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</link>
-      <pubDate>Fri, 20 Nov 2020 17:12:30 +0800</pubDate>
+      <link>https://gyk19950104.github.io/cs/1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%80/</link>
+      <pubDate>Mon, 23 Nov 2020 16:01:52 +0800</pubDate>
       
-      <guid>https://gyk19950104.github.io/cs/1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</guid>
-      <description>目标 搭建5级流水mipscpu</description>
+      <guid>https://gyk19950104.github.io/cs/1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E4%B8%80/</guid>
+      <description>1.模拟信号到数字信号转换 模拟信号是指随时间连续变化的信号，但现实中是无法存储无限的模拟信号，所以根据奎斯特原理对模拟信号取样后得到离散信号，这样取样能保证信息不丢失，取样得到的离散信号数值使用数字表示，得到数字信号，这样对模拟量的计算就会转化为对数字量的计算，在计算时为了尽可能的简化，采用了二进制表示，它的基数只有01，易于在现实中实现，比如常见的三级管：
+以NPN型三极管为例，它包括集电极，基极和发射极，基极负责调控通断
+ 1.b处电流极小时be/bc都不导通，整体出电量几乎为0，处于截止状态 2.b处电流逐渐增大，be/bc慢慢导通，整体出电量慢慢增大，处于放大状态 3.b处电流增大到将bc完全导通时，be/bc全部导通，整体出电量保持最大不变，处于饱和状态  通过调节基极电压可以控制集电极与发射极的通断，这正对应着01两种状态，也是计算机最常见的二进制
+二进制数在计算时会对应真实世界的符号位，为了将符号位也引进计算，提出了原码/反码/补码等各种二进制的不同表示形式，真实模拟量被二进制数字化表示后，要想弄清楚它们之间的关系，需要对其进行计算，如何找到最简计算方法，这就需要使用到逻辑代数，我们关键是要明白功能-函数/函数-功能的转化，最常见的搭建元件是ttl与非门</description>
     </item>
     
   </channel>
