@@ -5,10 +5,24 @@
     <link>https://gyk19950104.github.io/skill/</link>
     <description>Recent content in Skills on gyk&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 08 Dec 2020 21:56:58 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Feb 2021 16:20:02 +0800</lastBuildDate>
     
 	<atom:link href="https://gyk19950104.github.io/skill/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>阿里云部署</title>
+      <link>https://gyk19950104.github.io/skill/3.%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sat, 20 Feb 2021 16:20:02 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/skill/3.%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2/</guid>
+      <description>1.购买云服务器与域名 在阿里云的控制台右侧找到云服务器和域名分别购买，购买后会得到：
+ 服务器公网ip和密码 未认证的域名  2.环境准备 安装node，nginx和pm2
+ node：https://www.cnblogs.com/zhi-leaf/p/10979629.html nginx：https://www.cnblogs.com/-youth/p/9764765.html pm2: npm install pm2 -g  3.配置nginx 在/usr/local/nginx/conf/下vim nginx.conf以下内容后重载nginx配置/usr/local/bin/nginx -s reload
+可能会遇到nginx: [error] open() &amp;quot;/usr/local/nginx/logs/nginx.pid&amp;quot; failed (2: No such f的问题
+可以指定一下nginx的配置文件位置即可/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+worker_processes 1; events { worker_connections 1024; } http { include mime.types; default_type application/octet-stream; sendfile on; keepalive_timeout 65; //配置域名 server { server_name mrx.wiki; } //配置网站根目录 location / { root public; index index.html index.htm; } //配置出错跳转 error_page 500 502 503 504 /50x.</description>
+    </item>
     
     <item>
       <title>汽车构造</title>
