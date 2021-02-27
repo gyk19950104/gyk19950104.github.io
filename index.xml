@@ -5,10 +5,19 @@
     <link>https://gyk19950104.github.io/</link>
     <description>Recent content on gyk&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 21 Feb 2021 03:59:58 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Feb 2021 00:15:17 +0800</lastBuildDate>
     
 	<atom:link href="https://gyk19950104.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React</title>
+      <link>https://gyk19950104.github.io/frontend/react/</link>
+      <pubDate>Sun, 28 Feb 2021 00:15:17 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/frontend/react/</guid>
+      <description>1.概念  单页面应用：加载单个HTML页面和所需资源，与页面的任何交互，页面都不会重新加载 jsx：js的扩展集，每个 JSX 元素只是调用 React.createElement的语法糖 组件：分为函数组件和类组件，区别是类组件上添加了许多别的特性 钩子函数：生命周期函数，在特定时间自动触发的函数 Props：jsx传值与子组件的节点组成的对象，props 是只读的 State：组件内部的数据，只能通过setState({ })更改 react非受控组件：用非react处理数据方式处理的组件 状态提升：不同层级子组件传值 组合继承：组件通过组合堆砌而不是继承实现,实质相当于槽的概念 context：复杂组件传值 错误边界：避免出错导致应用崩溃 Ref转发：组件外选中特定的dom refdom：组件内选中特定的dom 高阶组件：传入组件输出组件，实现对组件的加强，比如redux的connect Portals：组件可以脱离父组件层级挂载在DOM树的任何位置 Profiler：任意位置的性能测试 协调： diff算法 webcomponent：w3c支持的组件化标准  2.react细节 1.组件 // 1.获取容器 const domContainer = document.getElementById(&#39;root&#39;); // 2.创建虚拟dom //类组件 class Hello extends React.Component { constructor(props){ super(props); this.state = {name: &#39;hello,world!&#39;}; } componentWillMount(){ // 不能直接修改state // this.state = { name:&#39;hello&#39;}; // this.setState({ name:&#39;你好&#39;}) } render() { return (&amp;lt;div&amp;gt;{this.state.name}&amp;lt;/div&amp;gt;) } }; //函数组件 function World(props){ console.</description>
+    </item>
     
     <item>
       <title>书籍目录</title>

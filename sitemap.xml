@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gyk19950104.github.io/book/</loc>
-    <lastmod>2021-02-21T03:59:58+08:00</lastmod>
+    <loc>https://gyk19950104.github.io/frontend/</loc>
+    <lastmod>2021-02-28T00:15:17+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://gyk19950104.github.io/</loc>
+    <lastmod>2021-02-28T00:15:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gyk19950104.github.io/frontend/react/</loc>
+    <lastmod>2021-02-28T00:15:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gyk19950104.github.io/book/</loc>
     <lastmod>2021-02-21T03:59:58+08:00</lastmod>
   </url>
   
