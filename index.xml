@@ -5,10 +5,29 @@
     <link>https://gyk19950104.github.io/</link>
     <description>Recent content on gyk&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Feb 2021 00:15:17 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Mar 2021 00:34:28 +0800</lastBuildDate>
     
 	<atom:link href="https://gyk19950104.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>java</title>
+      <link>https://gyk19950104.github.io/backend/1.java/</link>
+      <pubDate>Thu, 11 Mar 2021 00:34:28 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/backend/1.java/</guid>
+      <description>1.SE基础 1.学习路线
+2.javaSE基础,ME嵌入式,EE网站后台
+3.jdk开发工具包，jre运行时，jvm虚拟机
+4.关键字是特殊的标识符
+5.数据类型：基本类型(字符，布尔，整型)和引用类型(类，接口，数组)
+修饰符 类型 变量名 = 值； 修饰符 返回值类型 函数名(){ }； 6.公司名倒置作为包名字com.baidu.www,在设置里将空文件不展示关闭
+7.文档注释：/**回车
+8.屏幕交互
+ Scanner scanner = new Scanner(System.in); String str = scanner.next(); System.out.println(&amp;quot;输入的内容为：&amp;quot;+str); 9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行
+10.面向对象oop
+1.封装： 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承： 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&amp;quot;kkks&amp;quot;)); } } //封装思想体现 package wiki.mrx.www; public class Student { //构造器 public Student(){ this.</description>
+    </item>
     
     <item>
       <title>React</title>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang=><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> java - gyk&#39;s blog</title>
+    <meta name="description" content="1.SE基础 1.学习路线
+2.javaSE基础,ME嵌入式,EE网站后台
+3.jdk开发工具包，jre运行时，jvm虚拟机
+4.关键字是特殊的标识符
+5.数据类型：基本类型(字符，布尔，整型)和引用类型(类，接口，数组)
+修饰符 类型 变量名 = 值； 修饰符 返回值类型 函数名(){ }； 6.公司名倒置作为包名字com.baidu.www,在设置里将空文件不展示关闭
+7.文档注释：/**回车
+8.屏幕交互
+ Scanner scanner = new Scanner(System.in); String str = scanner.next(); System.out.println(&quot;输入的内容为：&quot;&#43;str); 9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行
+10.面向对象oop
+1.封装： 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承： 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&quot;kkks&quot;)); } } //封装思想体现 package wiki.mrx.www; public class Student { //构造器 public Student(){ this.">
+    <link rel="canonical" href="https://gyk19950104.github.io/backend/1.java/">
+    <meta property="og:title" content="java">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://gyk19950104.github.io/backend/1.java/">
+    <meta property="og:description" content="1.SE基础 1.学习路线
+2.javaSE基础,ME嵌入式,EE网站后台
+3.jdk开发工具包，jre运行时，jvm虚拟机
+4.关键字是特殊的标识符
+5.数据类型：基本类型(字符，布尔，整型)和引用类型(类，接口，数组)
+修饰符 类型 变量名 = 值； 修饰符 返回值类型 函数名(){ }； 6.公司名倒置作为包名字com.baidu.www,在设置里将空文件不展示关闭
+7.文档注释：/**回车
+8.屏幕交互
+ Scanner scanner = new Scanner(System.in); String str = scanner.next(); System.out.println(&quot;输入的内容为：&quot;&#43;str); 9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行
+10.面向对象oop
+1.封装： 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承： 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&quot;kkks&quot;)); } } //封装思想体现 package wiki.mrx.www; public class Student { //构造器 public Student(){ this.">
+    <meta property="og:site_name" content="gyk&#39;s blog">
+    <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
+    <meta name="generator" content="Hugo 0.73.0" />
+    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+    
+</head>
+<body><header class="site-header">
+    <nav class="site-nav" role="navigation" aria-label="breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb"><li class="breadcrumb-item  " 
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/">
+    <span itemprop="name">gyk&#39;s blog</span>
+  </a>
+  <meta itemprop="position" content="0" />
+</li>/<li class="breadcrumb-item  " 
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/backend/">
+    <span itemprop="name">backend</span>
+  </a>
+  <meta itemprop="position" content="0" />
+</li>/<li class="breadcrumb-item active hidden" aria-current="page"
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/backend/1.java/">
+    <span itemprop="name">1.java</span>
+  </a>
+  <meta itemprop="position" content="1" />
+</li></ol>
+    </nav>
+    <h1 class="site-title hidden">
+    <a href="https://gyk19950104.github.io">gyk&#39;s blog</a>
+    </h1>
+</header>
+<main id="content">
+<article role="article" class="content post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">        
+        <h2 class="post-title" itemprop="name headline">java</h2>
+        <span class="post-meta">
+            <time class="date-published" datetime="2021-03-11T00:34:28&#43;07:00" itemprop="datePublished">
+                Thu, 11 Mar 2021
+            </time>
+            
+        </span>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="1se基础">1.SE基础</h2>
+<p><code>1.学习路线</code></p>
+<p><img src="https://i.loli.net/2021/03/11/XM48VPQRfwhGESB.png" alt="quanjiaqi"></p>
+<p><code>2.javaSE基础,ME嵌入式,EE网站后台</code></p>
+<p><img src="https://i.loli.net/2021/03/11/Jy7xfsSqnBUwoVk.png" alt="quanjiaqi"></p>
+<p><code>3.jdk开发工具包，jre运行时，jvm虚拟机</code></p>
+<p><img src="https://i.loli.net/2021/03/11/yqwkpFALnXKj2Ve.png" alt="quanjiaqi"></p>
+<p><code>4.关键字是特殊的标识符</code></p>
+<p><code>5.数据类型：基本类型(字符，布尔，整型)和引用类型(类，接口，数组)</code></p>
+<pre><code>修饰符 类型 变量名 = 值；
+
+修饰符  返回值类型 函数名(){ }；
+
+</code></pre><p><code>6.公司名倒置作为包名字com.baidu.www,在设置里将空文件不展示关闭</code></p>
+<p><code>7.文档注释：/**回车</code></p>
+<p><code>8.屏幕交互</code></p>
+<pre><code>
+Scanner scanner = new Scanner(System.in);
+String str = scanner.next();
+System.out.println(&quot;输入的内容为：&quot;+str);
+
+</code></pre><p><code>9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行</code></p>
+<p><code>10.面向对象oop</code></p>
+<pre><code>1.封装：
+类的创建与对象的实例化,包括构造器this，属性，方法
+get与set方法
+
+2.继承：
+子类通过extends实现子承父业
+子类调用父类前加super，在构造器中super()首行调用
+子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受
+
+重载是函数名相同，对不同传参做不同处理
+重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写
+
+3.多态
+不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型
+
+
+
+</code></pre><pre><code>//封装思想体现
+package wiki.mrx.www;
+
+public class Application {
+    public static void main(String[] args) {
+        //实例化对象
+        Student student1 = new Student();
+        System.out.println(student1.getName());
+        System.out.println(student1.setName(&quot;kkks&quot;));
+    }
+}
+
+</code></pre><pre><code>//封装思想体现
+package wiki.mrx.www;
+
+public class Student {
+    //构造器
+    public Student(){
+        this.name = &quot;kk&quot;;
+    };
+    //属性
+    private String name;
+
+    //方法
+    public void study(){
+        System.out.println(this.name + &quot;在学习！！！&quot;);
+    };
+
+    //get和set方法是封装的体现
+    //command + n
+    public String getName(){
+        return this.name;
+    }
+
+    public String setName(String name){
+       return this.name = name;
+    };
+}
+
+</code></pre><pre><code>//继承思想体现
+package wiki.mrx.www;
+
+//入口
+public class Application {
+    public static void main(String[] args) {
+        //实例化对象
+        Student student1 = new Student();
+        System.out.println(student1.say());
+    }
+}
+
+</code></pre><pre><code>//继承思想体现
+package wiki.mrx.www;
+
+//父类
+public class Person {
+    String name = &quot;kkk&quot;;
+    public void eat(){
+    	System.out.println(&quot;父类方法&quot;);
+    }
+}
+
+//子类
+public class Student extends Person{
+    public class Student{
+    	super();
+    }
+    public say(){
+    	System.out.println(super.name);
+    }
+
+    @Override
+    public void eat() {
+        System.out.println(&quot;子类重写后的父类方法&quot;);
+    }
+}
+
+</code></pre><pre><code>//多态思想体现
+
+public class Application {
+    public static void main(String[] args) {
+        //实例化对象
+        Student s1 = new Student();
+        //父类引用指向子类的对象
+        Person s2 = new Student();
+        s1.run();
+        s2.run();
+
+    }
+}
+
+
+public class Person {
+    public void run(){
+        System.out.println(&quot;person&quot;);
+    }
+}
+
+public class Student extends Person {
+    @Override
+    public void run() {
+        System.out.println(&quot;student&quot;);
+    }
+}
+
+
+
+</code></pre>
+    </div>
+</article>
+<div class="pagination">
+    
+    
+</div>
+
+
+        </main><footer class="site-footer">
+	<span class="right">
+		<em>gyk&#39;s blog</em>
+	</span>
+</footer>
+</body>
+</html>
