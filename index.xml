@@ -26,7 +26,7 @@
 8.屏幕交互
  Scanner scanner = new Scanner(System.in); String str = scanner.next(); System.out.println(&amp;quot;输入的内容为：&amp;quot;+str); 9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行
 10.面向对象oop
-1.封装： 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承： 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&amp;quot;kkks&amp;quot;)); } } //封装思想体现 package wiki.mrx.www; public class Student { //构造器 public Student(){ this.</description>
+1.封装：单个类 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承：类的单线串联 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 抽象类实现单继承的同时还可以在父类添加普通方法 接口实现多继承，完全将规范与实现分离 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态: 多个类用一个方法 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 多态满足：继承，子类重写父类方法，父类指向子类对象 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&amp;quot;kkks&amp;quot;)); } } //封装思想体现 package wiki.</description>
     </item>
     
     <item>

@@ -14,7 +14,7 @@
 8.屏幕交互
  Scanner scanner = new Scanner(System.in); String str = scanner.next(); System.out.println(&quot;输入的内容为：&quot;&#43;str); 9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行
 10.面向对象oop
-1.封装： 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承： 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&quot;kkks&quot;)); } } //封装思想体现 package wiki.mrx.www; public class Student { //构造器 public Student(){ this.">
+1.封装：单个类 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承：类的单线串联 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 抽象类实现单继承的同时还可以在父类添加普通方法 接口实现多继承，完全将规范与实现分离 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态: 多个类用一个方法 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 多态满足：继承，子类重写父类方法，父类指向子类对象 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&quot;kkks&quot;)); } } //封装思想体现 package wiki.">
     <link rel="canonical" href="https://gyk19950104.github.io/backend/1.java/">
     <meta property="og:title" content="java">
     <meta property="og:type" content="article">
@@ -29,7 +29,7 @@
 8.屏幕交互
  Scanner scanner = new Scanner(System.in); String str = scanner.next(); System.out.println(&quot;输入的内容为：&quot;&#43;str); 9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行
 10.面向对象oop
-1.封装： 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承： 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&quot;kkks&quot;)); } } //封装思想体现 package wiki.mrx.www; public class Student { //构造器 public Student(){ this.">
+1.封装：单个类 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承：类的单线串联 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 抽象类实现单继承的同时还可以在父类添加普通方法 接口实现多继承，完全将规范与实现分离 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态: 多个类用一个方法 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 多态满足：继承，子类重写父类方法，父类指向子类对象 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&quot;kkks&quot;)); } } //封装思想体现 package wiki.">
     <meta property="og:site_name" content="gyk&#39;s blog">
     <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
     <meta name="generator" content="Hugo 0.73.0" />
@@ -98,21 +98,24 @@ System.out.println(&quot;输入的内容为：&quot;+str);
 
 </code></pre><p><code>9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行</code></p>
 <p><code>10.面向对象oop</code></p>
-<pre><code>1.封装：
+<pre><code>1.封装：单个类
 类的创建与对象的实例化,包括构造器this，属性，方法
 get与set方法
 
-2.继承：
+2.继承：类的单线串联
 子类通过extends实现子承父业
 子类调用父类前加super，在构造器中super()首行调用
 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受
+抽象类实现单继承的同时还可以在父类添加普通方法
+接口实现多继承，完全将规范与实现分离
+
 
 重载是函数名相同，对不同传参做不同处理
 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写
 
-3.多态
+3.多态: 多个类用一个方法
 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型
-
+多态满足：继承，子类重写父类方法，父类指向子类对象
 
 </code></pre><pre><code>//封装思想体现
 package wiki.mrx.www;
@@ -221,6 +224,536 @@ public class Student extends Person {
 
 
 
+</code></pre><p><code>11.抽象类:多个类中重复使用的方法定义在抽象类中提高复用性</code>
+<code>抽象类中的抽象方法不可有方法体，普通方法则正常，子类继承抽象类时必须重写抽象类的方法</code></p>
+<pre><code>package wiki.mrx.www;
+
+public abstract class Person {
+    public abstract void run();
+}
+
+public class Student extends Person {
+    @Override
+    public void run() {
+        System.out.println(&quot;student&quot;);
+    }
+}
+</code></pre><p><code>12.接口：制定的规范，实现与规范分离, 比抽象类更强大，可以实现多继承</code></p>
+<pre><code>//1.定义接口Person.java 和 Say.java
+package wiki.mrx.www;
+
+public abstract interface Person {
+    void add();
+}
+
+public interface Say {
+    void say();
+}
+
+//2.实现接口PersonImpl.java
+public class PersonImpl implements Person, Say{
+    @Override
+    public void add() {
+        
+    }
+
+    @Override
+    public void say() {
+        
+    }
+}
+
+
+</code></pre><p><code>13.进程与线程</code></p>
+<pre><code>//1.创建
+//继承Thread类,重写run方法，新建对象后start开启线程
+package wiki.mrx.www;
+
+public class TestThread extends Thread{
+    //主线程
+    public static void main(String[] args) {
+        //创建并开启线程
+        TestThread t1 = new TestThread();
+        t1.start();
+        //主线程代码
+        for (int i=0;i&lt;20;i++){
+            System.out.println(&quot;我在学习多线程&quot;+i);
+        }
+
+    }
+
+    @Override
+    public void run() {
+        for (int i=0;i&lt;20;i++){
+            System.out.println(&quot;我在看代码&quot;+i);
+        }
+    }
+}
+
+</code></pre><pre><code>//实现Runnable接口：实现runnable接口，重写run方法，创建对象后丢入thread中start
+package wiki.mrx.www;
+//写的时候脑子里出现并行的主线和线程执行的线
+//创建implements Runnable的类后重写run方法，执行该线程内的逻辑
+//主线程Stop stop = new Stop();new Thread(stop).start();
+
+
+public class TestThread implements Runnable{
+    //主线程
+    public static void main(String[] args) {
+        //创建并开启线程
+        TestThread testThread = new TestThread();
+        new Thread(testThread).start();
+        //主线程代码
+        for (int i=0;i&lt;20;i++){
+            System.out.println(&quot;我在学习多线程&quot;+i);
+        }
+
+    }
+
+    @Override
+    public void run() {
+        for (int i=0;i&lt;20;i++){
+            System.out.println(&quot;我在看代码&quot;+i);
+        }
+    }
+}
+
+
+</code></pre><pre><code>//实现Callable接口
+
+
+
+</code></pre><pre><code>//2.停止
+package wiki.mrx.www;
+
+
+
+public class Stop implements Runnable {
+    //1.设置停止标志位
+    private boolean flag = true;
+
+    @Override
+    public void run() {
+        int i = 0;
+        while (flag){
+            System.out.println(&quot;run .... thrread&quot; + i++);
+        }
+    }
+
+    //2.设置公开停止方法
+    public void stop(){
+        this.flag = false;
+    }
+
+    //3.主线程
+    public static void main(String[] args) {
+        Stop stop = new Stop();
+        new Thread(stop).start();
+        for (int i = 0; i &lt; 1000; i++) {
+            System.out.println(&quot;main&quot;+i);
+            if(i==900){
+                stop.stop();
+                System.out.println(&quot;该线程停止&quot;);
+            }
+        }
+    }
+}
+
+
+</code></pre><p><code>14.进程锁机制</code></p>
+<pre><code>//未上锁时不同进程抢夺统一资源时会导致资源被重复使用
+package wiki.mrx.www;
+
+public class UnsafeBuyTicket {
+    public static void main(String[] args) {
+        BuyTicket station = new BuyTicket();
+        new Thread(station,&quot;kk&quot;).start();
+        new Thread(station,&quot;nn&quot;).start();
+        new Thread(station,&quot;ll&quot;).start();
+    }
+}
+
+
+class BuyTicket implements Runnable{
+    private  int ticketNums = 10;
+    boolean flag = true;
+
+    @Override
+    public void run() {
+        //买票
+        while(flag){
+            buy();
+        }
+    }
+
+    private void buy(){
+        //判断是否有票
+        if(ticketNums &lt;=0 ){
+            flag = false;
+            return;
+        };
+        //模拟延时
+        try{
+            Thread.sleep(100);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
+        System.out.println(Thread.currentThread().getName()+&quot;拿到&quot;+ticketNums--);
+    }
+};
+
+
+</code></pre><pre><code>//buy方法通过synchronized上锁
+package wiki.mrx.www;
+
+public class UnsafeBuyTicket {
+    public static void main(String[] args) {
+        BuyTicket station = new BuyTicket();
+        new Thread(station,&quot;kk&quot;).start();
+        new Thread(station,&quot;nn&quot;).start();
+        new Thread(station,&quot;ll&quot;).start();
+    }
+}
+
+
+class BuyTicket implements Runnable{
+    private  int ticketNums = 10;
+    boolean flag = true;
+
+    @Override
+    public void run() {
+        //买票
+        while(flag){
+            try{
+                buy();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private synchronized void buy() throws InterruptedException{
+        //判断是否有票
+        if(ticketNums &lt;=0 ){
+            flag = false;
+            return;
+        };
+        //模拟延时
+        Thread.sleep(100);
+
+        System.out.println(Thread.currentThread().getName()+&quot;拿到&quot;+ticketNums--);
+    }
+};
+</code></pre><p><code>15.死锁:多个线程互相占用对方的资源导致彼此都进行不下去</code></p>
+<pre><code>package wiki.mrx.www;
+
+public class DeadLock {
+    public static void main(String[] args) {
+        MakeUp g1 = new MakeUp(0,&quot;灰姑娘&quot;);
+        MakeUp g2 = new MakeUp(1,&quot;白雪公主&quot;);
+        g1.start();
+        g2.start();
+    }
+}
+
+//口红
+class LipStick{
+
+}
+
+//镜子
+class Mirror{
+
+}
+
+//化妆
+class MakeUp extends Thread{
+    //需要的资源只有一份
+    static LipStick lipstick = new LipStick();
+    static  Mirror mirror = new Mirror();
+
+    int choice;
+    String girlName;
+
+    MakeUp(int choice, String girlName){
+        this.choice = choice;
+        this.girlName = girlName;
+    }
+    @Override
+    public void run() {
+        try {
+            makeup();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    //化妆，互相持有对方的资源
+    private void makeup() throws InterruptedException{
+        if(choice == 0){
+            synchronized (lipstick){
+                //获得口红的锁
+                System.out.println(this.girlName+&quot;获得口红的资源&quot;);
+                Thread.sleep(1000);
+            }
+
+            synchronized (mirror){
+                //一秒钟后想获得镜子资源
+                System.out.println(this.girlName+&quot;获得镜子的资源&quot;);
+            }
+        }else{
+            synchronized (mirror){
+                //获得口红的锁
+                System.out.println(this.girlName+&quot;获得口红的资源&quot;);
+                Thread.sleep(2000);
+            }
+
+            synchronized (lipstick){
+                //一秒钟后想获得镜子资源
+                System.out.println(this.girlName+&quot;获得镜子的资源&quot;);
+            }
+        }
+    }
+}
+
+</code></pre><p><code>16.lock锁</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.util.concurrent.locks.ReentrantLock;
+
+public class TestLock {
+    public static void main(String[] args) {
+        TestLock2 testLock2 = new TestLock2();
+        new Thread(testLock2).start();
+        new Thread(testLock2).start();
+        new Thread(testLock2).start();
+    }
+}
+
+class TestLock2 implements Runnable{
+    int ticketNums = 10;
+    //定义lock锁
+    private final ReentrantLock lock = new ReentrantLock();
+
+    @Override
+    public void run() {
+        while(true){
+            try{
+                //加锁
+                lock.lock();
+                if(ticketNums &gt; 0){
+                    //模拟延时
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    //买票
+                    System.out.println(ticketNums--);
+                }else{
+                    break;
+                }
+            }finally {
+                //解锁
+                lock.unlock();
+            }
+        }
+    }
+}
+
+
+</code></pre><p><code>17.线程通信</code></p>
+<pre><code>package wiki.mrx.www;
+
+//1.管程法
+import com.sun.xml.internal.xsom.impl.SchemaImpl;
+
+//管程法
+//生产者，消费者，产品，缓冲区
+public class TestPC {
+    public static void main(String[] args) {
+        SynContainer container = new SynContainer();
+        new Productor(container).start();
+        new Consumer(container).start();
+    }
+}
+
+//生产者
+class Productor extends Thread{
+    SynContainer container;
+
+    public Productor(SynContainer container) {
+        this.container = container;
+    }
+    //生产
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 100; i++) {
+            container.push(new Chicken(i));
+            System.out.println(&quot;生产了&quot;+i+&quot;只鸡&quot;);
+        }
+    }
+}
+//消费者
+class Consumer extends Thread{
+    SynContainer container;
+
+    public Consumer(SynContainer container) {
+        this.container = container;
+    }
+    //消费
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 100; i++) {
+            System.out.println(&quot;消费了&quot;+container.pop().id+&quot;只鸡&quot;);
+        }
+    }
+}
+//产品
+class Chicken{
+    int id;
+    public Chicken(int id) {
+        this.id = id;
+    }
+}
+//缓冲区
+class SynContainer{
+    //需要一个容器大小
+    Chicken[] chickens = new Chicken[10];
+    //容器计数器
+    int count = 0;
+
+    //生产者放入产品
+    public synchronized void push(Chicken chicken){
+        //如果容器满了就需要等待消费者消费
+        if(count == chickens.length){
+            //通知消费者消费生产等待
+            try{
+                this.wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+        //如果没有满就需要丢入产品
+        chickens[count] = chicken;
+        count++;
+        //可以通知消费者消费了
+        this.notify();
+    }
+
+
+
+    //消费者消费产品
+    public synchronized Chicken pop(){
+        // 判断能否消费
+        if(count == 0){
+            //等待生产者生产，消费者等待
+            try{
+                this.wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+
+        //如果可以消费
+        count--;
+        Chicken chicken = chickens[count];
+
+        //通知生产者生产
+        this.notifyAll();
+        return chicken;
+
+    }
+
+}
+
+
+</code></pre><pre><code>
+package wiki.mrx.www;
+
+//2.信号灯法
+public class TestPC {
+    public static void main(String[] args) {
+        TV tv = new TV();
+        new Player(tv).start();
+        new Watcher(tv).start();
+    }
+}
+
+
+//生产者：演员
+class Player extends Thread{
+    TV tv;
+    public Player(TV tv){
+        this.tv = tv;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 20; i++) {
+            if(i%2==0){
+                this.tv.play(&quot;快乐大本营&quot;);
+            }else{
+                this.tv.play(&quot;抖音记录美好生活&quot;);
+            }
+        }
+    }
+}
+//消费者：观众
+class Watcher extends Thread{
+    TV tv;
+    public Watcher(TV tv){
+        this.tv = tv;
+    }
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 20; i++) {
+            tv.watch();
+        }
+}
+
+//产品：节目
+class TV {
+    //演员表演，观众等待T
+    //观众观看，演员等待F
+    String voice;
+    boolean flag = true;
+    //表演
+    public synchronized void play(String voice){
+        if(!flag){
+            try{
+                this.wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            };
+        };
+        System.out.println(&quot;演员表演了&quot;+voice);
+        
+        //通知观众观看
+        this.notifyAll();
+        this.voice = voice;
+        this.flag = !this.flag;
+    };
+
+    //观看
+    public synchronized void watch(){
+        if(flag){
+            try{
+                this.wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+        System.out.println(&quot;观看了&quot;+voice);
+        //通知演员表演
+        this.notifyAll();
+        this.flag = !this.flag;
+    };
+
+}
 </code></pre>
     </div>
 </article>
