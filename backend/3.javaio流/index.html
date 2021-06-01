@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang=><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 3.javaio流 - gyk&#39;s blog</title>
+    <meta name="description" content="1.文件外 java将文件抽象为file类可以操作盘符上的文件
+package wiki.mrx.www; import java.io.File; public class FileTest { public static void main(String[] args) { File f = new File(&quot;/Users/gyk/desktop/test.txt&quot;); System.out.println(f.canExecute() ); System.out.println(f.canRead()); System.out.println(f.getName()); System.out.println(f.canWrite()); System.out.println(f.exists()); System.out.println(f.getAbsoluteFile()); System.out.println(f.getAbsolutePath()); System.out.println(f.getParentFile()); System.out.println(f.getPath()); System.out.println(f.isDirectory()); System.out.println(f.isHidden()); System.out.println(f.lastModified()); System.out.println(f.length()); System.out.println(f.list()); } } 2.文件内 文件的本质是二进制的数据，可以把他们想像成水源和管道，他们都有进有出，根据传输的用途分为：
+ 处理文本文件的字符流 处理非文本文件的字节流 减少硬盘操作次数的处理流 转换流 数据流操作基本数据类型和string 对象流操作引用类型数据  =========================================== 处理文本文件的字符流
+用FileReader和FileWriter完成文本文件复制,缓冲数组 ===========================================
+//用FileReader和FileWriter完成文本文件复制 package wiki.mrx.www; import java.io.*; public class FileTest { public static void main(String[] args) throws IOException { //1.新建源文件和目标文件 File f1 = new File(&quot;/Users/gyk/desktop/test.">
+    <link rel="canonical" href="https://gyk19950104.github.io/backend/3.javaio%E6%B5%81/">
+    <meta property="og:title" content="3.javaio流">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://gyk19950104.github.io/backend/3.javaio%E6%B5%81/">
+    <meta property="og:description" content="1.文件外 java将文件抽象为file类可以操作盘符上的文件
+package wiki.mrx.www; import java.io.File; public class FileTest { public static void main(String[] args) { File f = new File(&quot;/Users/gyk/desktop/test.txt&quot;); System.out.println(f.canExecute() ); System.out.println(f.canRead()); System.out.println(f.getName()); System.out.println(f.canWrite()); System.out.println(f.exists()); System.out.println(f.getAbsoluteFile()); System.out.println(f.getAbsolutePath()); System.out.println(f.getParentFile()); System.out.println(f.getPath()); System.out.println(f.isDirectory()); System.out.println(f.isHidden()); System.out.println(f.lastModified()); System.out.println(f.length()); System.out.println(f.list()); } } 2.文件内 文件的本质是二进制的数据，可以把他们想像成水源和管道，他们都有进有出，根据传输的用途分为：
+ 处理文本文件的字符流 处理非文本文件的字节流 减少硬盘操作次数的处理流 转换流 数据流操作基本数据类型和string 对象流操作引用类型数据  =========================================== 处理文本文件的字符流
+用FileReader和FileWriter完成文本文件复制,缓冲数组 ===========================================
+//用FileReader和FileWriter完成文本文件复制 package wiki.mrx.www; import java.io.*; public class FileTest { public static void main(String[] args) throws IOException { //1.新建源文件和目标文件 File f1 = new File(&quot;/Users/gyk/desktop/test.">
+    <meta property="og:site_name" content="gyk&#39;s blog">
+    <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
+    <meta name="generator" content="Hugo 0.73.0" />
+    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+    
+</head>
+<body><header class="site-header">
+    <nav class="site-nav" role="navigation" aria-label="breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb"><li class="breadcrumb-item  " 
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/">
+    <span itemprop="name">gyk&#39;s blog</span>
+  </a>
+  <meta itemprop="position" content="0" />
+</li>/<li class="breadcrumb-item  " 
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/backend/">
+    <span itemprop="name">backend</span>
+  </a>
+  <meta itemprop="position" content="0" />
+</li>/<li class="breadcrumb-item active hidden" aria-current="page"
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/backend/3.javaio%E6%B5%81/">
+    <span itemprop="name">3.javaio%E6%B5%81</span>
+  </a>
+  <meta itemprop="position" content="1" />
+</li></ol>
+    </nav>
+    <h1 class="site-title hidden">
+    <a href="https://gyk19950104.github.io">gyk&#39;s blog</a>
+    </h1>
+</header>
+<div>先有逻辑正确的思路，剩余的是重复的实践与积累</div>
+<main id="content">
+<article role="article" class="content post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">        
+        <h2 class="post-title" itemprop="name headline">3.javaio流</h2>
+        <span class="post-meta">
+            <time class="date-published" datetime="2021-06-01T17:37:33&#43;07:00" itemprop="datePublished">
+                Tue, 1 Jun 2021
+            </time>
+            
+        </span>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="1文件外">1.文件外</h2>
+<p><code>java将文件抽象为file类可以操作盘符上的文件</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.io.File;
+
+public class FileTest {
+    public static void main(String[] args) {
+        File f = new File(&quot;/Users/gyk/desktop/test.txt&quot;);
+        System.out.println(f.canExecute() );
+        System.out.println(f.canRead());
+        System.out.println(f.getName());
+        System.out.println(f.canWrite());
+        System.out.println(f.exists());
+        System.out.println(f.getAbsoluteFile());
+        System.out.println(f.getAbsolutePath());
+        System.out.println(f.getParentFile());
+        System.out.println(f.getPath());
+        System.out.println(f.isDirectory());
+        System.out.println(f.isHidden());
+        System.out.println(f.lastModified());
+        System.out.println(f.length());
+        System.out.println(f.list());
+    }
+}
+
+</code></pre><h2 id="2文件内">2.文件内</h2>
+<p><code>文件的本质是二进制的数据，可以把他们想像成水源和管道，他们都有进有出，根据传输的用途分为：</code></p>
+<ul>
+<li>处理文本文件的字符流</li>
+<li>处理非文本文件的字节流</li>
+<li>减少硬盘操作次数的处理流</li>
+<li>转换流</li>
+<li>数据流操作基本数据类型和string</li>
+<li>对象流操作引用类型数据</li>
+</ul>
+<p><code>===========================================</code>
+<code>处理文本文件的字符流</code></p>
+<p><code>用FileReader和FileWriter完成文本文件复制,缓冲数组</code>
+<code>===========================================</code></p>
+<pre><code>//用FileReader和FileWriter完成文本文件复制
+package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args) throws IOException {
+        //1.新建源文件和目标文件
+        File f1 = new File(&quot;/Users/gyk/desktop/test.txt&quot;);
+        File f2 = new File(&quot;/Users/gyk/desktop/demo.txt&quot;);
+
+        //2.FileReader接源文件
+        FileReader fr = new FileReader(f1);
+
+        //3.FileWriter接目标文件
+        FileWriter fw = new FileWriter(f2);//只覆盖不追加
+
+        //4.开始复制
+        char[] ch = new char[20];
+        int len = fr.read(ch);
+        while (len !=-1){
+            fw.write(ch,0,len);
+            len = fr.read(ch);
+        }
+        //5.关闭流
+        fw.close();
+        fr.close();
+
+
+    }
+}
+</code></pre><p><code>===========================================</code>
+<code>处理文本文件的字符流</code></p>
+<p><code>用FileReader和FileWriter完成文本文件复制,加异常</code>
+<code>===========================================</code></p>
+<pre><code>//用FileReader和FileWriter完成文本文件复制,加异常处理
+package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args){
+        //1.新建源文件和目标文件
+        File f1 = new File(&quot;/Users/gyk/desktop/test.txt&quot;);
+        File f2 = new File(&quot;/Users/gyk/desktop/demo.txt&quot;);
+
+        //2.FileReader接源文件
+        FileReader fr = null;
+        FileWriter fw = null;
+        try {
+            fr = new FileReader(f1);
+            //3.FileWriter接目标文件
+            fw = new FileWriter(f2);//只覆盖不追加
+
+            //4.开始复制
+            char[] ch = new char[20];
+            int len = fr.read(ch);
+            while (len !=-1){
+                fw.write(ch,0,len);
+                len = fr.read(ch);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            //5.关闭流
+            try {
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                fr.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+    }
+}
+
+</code></pre><p><code>===========================================</code>
+<code>处理非文本文件的字节流</code></p>
+<p><code>用FileInputStream和FileOutputStream完成非文本文件的复制</code>
+<code>===========================================</code></p>
+<pre><code>//用FileInputStream和FileOutputStream完成非文本文件的复制
+package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args) throws IOException {
+        //1.新建源文件和目标文件
+        File f1 = new File(&quot;/Users/gyk/desktop/1.jpg&quot;);
+        File f2 = new File(&quot;/Users/gyk/desktop/2.jpg&quot;);
+
+        //2.FileInputStream接源文件
+        FileInputStream fis = new FileInputStream(f1);
+
+        //3.FileOutputStream接目标文件
+        FileOutputStream fos = new FileOutputStream(f2);//只覆盖不追加
+
+        //4.开始复制
+        int n = fis.read();
+        while (n !=-1){
+            fos.write(n);
+            n = fis.read();
+        }
+        //5.关闭流
+        fos.close();
+        fis.close();
+
+
+    }
+}
+</code></pre><p><code>===========================================</code>
+<code>处理非文本文件的字节流</code></p>
+<p><code>用FileInputStream和FileOutputStream完成非文本文件的复制,缓冲数组</code>
+<code>===========================================</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args) throws IOException {
+        //1.新建源文件和目标文件
+        File f1 = new File(&quot;/Users/gyk/desktop/1.jpg&quot;);
+        File f2 = new File(&quot;/Users/gyk/desktop/2.jpg&quot;);
+
+        //2.FileInputStream接源文件
+        FileInputStream fis = new FileInputStream(f1);
+
+        //3.FileOutputStream接目标文件
+        FileOutputStream fos = new FileOutputStream(f2);//只覆盖不追加
+
+        //4.开始复制
+        byte[] b = new byte[1024*10];
+        int n = fis.read(b);
+        while (n !=-1){
+            fos.write(b,0,n);
+            n = fis.read(b);
+        }
+        //5.关闭流
+        fos.close();
+        fis.close();
+
+
+    }
+}
+</code></pre><p><code>===========================================</code>
+<code>减少硬盘操作次数的处理流</code></p>
+<p><code>用BufferedInputStream和BufferedOutputStream完成非文本文件的复制,处理流</code>
+<code>===========================================</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args) throws IOException {
+        //1.新建源文件和目标文件
+        File f1 = new File(&quot;/Users/gyk/desktop/1.jpg&quot;);
+        File f2 = new File(&quot;/Users/gyk/desktop/2.jpg&quot;);
+
+        //2.FileInputStream接源文件
+        FileInputStream fis = new FileInputStream(f1);
+
+        //3.FileOutputStream接目标文件
+        FileOutputStream fos = new FileOutputStream(f2);//只覆盖不追加
+
+        //4.利用处理流降低操作硬盘的次数
+        BufferedInputStream bis = new BufferedInputStream(fis);
+        BufferedOutputStream bos = new BufferedOutputStream(fos);
+
+        //5.开始复制
+        byte[] b = new byte[1024*8];
+        int len = bis.read(b);
+        while (len !=-1){
+            bos.write(b,0,len);
+            len = bis.read(b);
+        }
+
+        //6.关闭流
+        bos.close();
+        bis.close();
+
+
+    }
+}
+
+</code></pre><p><code>===========================================</code>
+<code>减少硬盘操作次数的处理流</code></p>
+<p><code>用BufferedReader和BufferedWriter完成文本文件的复制,处理流</code>
+<code>===========================================</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args) throws IOException {
+        //1.新建源文件和目标文件
+        File f1 = new File(&quot;/Users/gyk/desktop/test.txt&quot;);
+        File f2 = new File(&quot;/Users/gyk/desktop/demo.txt&quot;);
+
+        //2.FileReader接源文件
+        FileReader fr = new FileReader(f1);
+
+        //3.FileWriter接目标文件
+        FileWriter fw = new FileWriter(f2);//只覆盖不追加
+
+        //4.利用处理流降低操作硬盘的次数
+        BufferedReader br = new BufferedReader(fr);
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        //5.开始复制
+        char[] ch = new char[30];
+        int len = br.read(ch);
+        while (len !=-1){
+            bw.write(ch,0,len);
+            len = br.read(ch);
+        }
+        //逐行读取
+        String str = br.readLine();
+        while (str != null){
+            bw.write(str);
+            str = br.readLine();
+        }
+        //6.关闭流
+        br.close();
+        bw.close();
+
+
+    }
+}
+
+</code></pre><p><code>===========================================</code>
+<code>减少硬盘操作次数的处理流</code></p>
+<p><code>用InputStreamReader和OutputStreamWriter完成文本文件的复制,处理流</code>
+<code>===========================================</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args) throws IOException {
+        //1.新建源文件和目标文件
+        File f1 = new File(&quot;/Users/gyk/desktop/test.txt&quot;);
+        File f2 = new File(&quot;/Users/gyk/desktop/demo.txt&quot;);
+
+        //2.FileReader接源文件
+        FileInputStream fis = new FileInputStream(f1);
+        FileOutputStream fos = new FileOutputStream(f2);
+
+        //3.InputStreamReader包裹FileInputStream
+        InputStreamReader isr = new InputStreamReader(fis,&quot;utf-8&quot;);
+        OutputStreamWriter osw = new OutputStreamWriter(fos,&quot;utf-8&quot;);
+
+
+        //5.开始复制
+        char[] ch = new char[30];
+        int len = isr.read(ch);
+        while (len !=-1){
+            osw.write(ch,0,len);
+            len = isr.read();
+        }
+
+        //6.关闭流
+        osw.close();
+        isr.close();
+    }
+}
+</code></pre><p><code>===========================================</code>
+<code>数据流</code></p>
+<p><code>DataInputStream和DataOutputStream</code>
+<code>===========================================</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args) throws IOException {
+        //1.新建源文件和目标文件
+        //DataInputStream接源文件
+        //DataOutputStream接目标文件
+        DataInputStream dis = new DataInputStream(new FileInputStream(new File(&quot;/Users/gyk/desktop/test.txt&quot;)));
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream(new File(&quot;/Users/gyk/desktop/demo.txt&quot;)));
+
+        //5.开始复制
+        dos.writeUTF(&quot;nihao&quot;);
+        System.out.println(dis.readUTF());
+        //6.关闭流
+        dos.close();
+        dis.close();
+    }
+}
+
+</code></pre><p><code>===========================================</code>
+<code>对象流:序列化和反序列化，如果是自定义的数据需要实现serializable接口，添加序列号uid</code></p>
+<p><code>ObjectOutputStream和ObjectInputStream</code>
+<code>===========================================</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.io.*;
+
+public class FileTest {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(&quot;/Users/gyk/desktop/test.txt&quot;)));
+        oos.writeObject(&quot;你好&quot;);
+
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(&quot;/Users/gyk/desktop/test.txt&quot;)));
+        String s = (String)(ois.readObject());
+        System.out.println(s);
+
+        ois.close();
+        oos.close();
+    }
+}
+
+</code></pre>
+    </div>
+</article>
+<div class="pagination">
+    
+    <div class="prev"> <a href="https://gyk19950104.github.io/backend/2.java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">Previous Post</a> </div>
+    
+    
+    <div class="next"> <a href="https://gyk19950104.github.io/backend/4.java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">Next Post</a> </div>
+    
+</div>
+
+
+        </main><footer class="site-footer">
+	<span class="right">
+		<em>gyk&#39;s blog</em>
+	</span>
+</footer>
+</body>
+</html>

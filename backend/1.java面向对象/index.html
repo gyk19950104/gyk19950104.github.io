@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang=><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> java面向对象 - gyk&#39;s blog</title>
+    <meta name="description" content="先有逻辑正确的思路，剩余的是重复的实践与积累
+1.面向对象 ===========================================
+1.1 类是有属性，方法和构造器的模版，对象是实例
+===========================================
+1.2 面向对象的三大特性：
+===========================================
+ 封装：修饰符，get,set方法 继承：extends，super，源头object 多态：同一行为，不同子类有不同表现，继承，子类重写父类方法，父类引用指向子类实例  //父类 package wiki.mrx.www; public class Person { //属性 private String name; static int age; //构造器：用于初始化数据 public Person(String name, int age) { this.name = name; this.age = age; } //get方法 public String getName() { return name; } public static int getAge() { return age; } //set方法 public void setName(String name) { this.name = name; } public static void setAge(int age) { Person.">
+    <link rel="canonical" href="https://gyk19950104.github.io/backend/1.java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+    <meta property="og:title" content="java面向对象">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://gyk19950104.github.io/backend/1.java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+    <meta property="og:description" content="先有逻辑正确的思路，剩余的是重复的实践与积累
+1.面向对象 ===========================================
+1.1 类是有属性，方法和构造器的模版，对象是实例
+===========================================
+1.2 面向对象的三大特性：
+===========================================
+ 封装：修饰符，get,set方法 继承：extends，super，源头object 多态：同一行为，不同子类有不同表现，继承，子类重写父类方法，父类引用指向子类实例  //父类 package wiki.mrx.www; public class Person { //属性 private String name; static int age; //构造器：用于初始化数据 public Person(String name, int age) { this.name = name; this.age = age; } //get方法 public String getName() { return name; } public static int getAge() { return age; } //set方法 public void setName(String name) { this.name = name; } public static void setAge(int age) { Person.">
+    <meta property="og:site_name" content="gyk&#39;s blog">
+    <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
+    <meta name="generator" content="Hugo 0.73.0" />
+    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+    
+</head>
+<body><header class="site-header">
+    <nav class="site-nav" role="navigation" aria-label="breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb"><li class="breadcrumb-item  " 
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/">
+    <span itemprop="name">gyk&#39;s blog</span>
+  </a>
+  <meta itemprop="position" content="0" />
+</li>/<li class="breadcrumb-item  " 
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/backend/">
+    <span itemprop="name">backend</span>
+  </a>
+  <meta itemprop="position" content="0" />
+</li>/<li class="breadcrumb-item active hidden" aria-current="page"
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/backend/1.java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+    <span itemprop="name">1.java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1</span>
+  </a>
+  <meta itemprop="position" content="1" />
+</li></ol>
+    </nav>
+    <h1 class="site-title hidden">
+    <a href="https://gyk19950104.github.io">gyk&#39;s blog</a>
+    </h1>
+</header>
+<div>先有逻辑正确的思路，剩余的是重复的实践与积累</div>
+<main id="content">
+<article role="article" class="content post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">        
+        <h2 class="post-title" itemprop="name headline">java面向对象</h2>
+        <span class="post-meta">
+            <time class="date-published" datetime="2021-06-01T17:22:15&#43;07:00" itemprop="datePublished">
+                Tue, 1 Jun 2021
+            </time>
+            
+        </span>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <p><code>先有逻辑正确的思路，剩余的是重复的实践与积累</code></p>
+<h2 id="1面向对象">1.面向对象</h2>
+<p><code>===========================================</code></p>
+<p><code>1.1 类是有属性，方法和构造器的模版，对象是实例</code></p>
+<p><code>===========================================</code></p>
+<p><code>1.2 面向对象的三大特性：</code></p>
+<p><code>===========================================</code></p>
+<ul>
+<li>封装：修饰符，get,set方法</li>
+<li>继承：extends，super，源头object</li>
+<li>多态：同一行为，不同子类有不同表现，继承，子类重写父类方法，父类引用指向子类实例</li>
+</ul>
+<pre><code>//父类
+package wiki.mrx.www;
+
+public class Person {
+
+    //属性
+    private String name;
+    static int age;
+
+    //构造器：用于初始化数据
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    //get方法
+    public String getName() {
+        return name;
+    }
+
+    public static int getAge() {
+        return age;
+    }
+    //set方法
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static void setAge(int age) {
+        Person.age = age;
+    }
+
+    //自定义方法
+    public void eat(){
+        System.out.println(&quot;人可以吃饭&quot;);
+    }
+}
+</code></pre><pre><code>//Teacher子类
+package wiki.mrx.www;
+
+public class Teacher extends Person{
+    //构造器
+    public Teacher(String name, int age) {
+        super(name, age);
+    }
+    //重写父类eat方法
+    @Override
+    public void eat() {
+        System.out.println(&quot;老师在教师食堂吃饭&quot;);
+    }
+    //自定义方法
+    public void teac(){
+        System.out.println(&quot;老师能教学&quot;);
+    }
+}
+
+
+</code></pre><pre><code>//Student子类
+package wiki.mrx.www;
+
+public class Student extends Person{
+    public Student(String name, int age) {
+        super(name, age);
+    }
+    //重写父类eat方法
+    @Override
+    public void eat() {
+        System.out.println(&quot;学生在学生食堂吃饭&quot;);
+    }
+
+    //自定义方法
+    public void study(){
+        System.out.println(&quot;学生可以学习&quot;);
+    }
+}
+
+</code></pre><pre><code>//测试类
+package wiki.mrx.www;
+
+public class Test {
+    public static void main(String[] args) {
+        Teacher t = new Teacher(&quot;王老师&quot;,33);
+        Person p1 = t;
+        Person p2 = new Student(&quot;小明&quot;,18);
+        p1.eat();//老师在教师食堂吃饭
+        p2.eat();//学生在学生食堂吃饭
+        t.teac();
+
+    }
+}
+
+</code></pre><p><code>===========================================</code></p>
+<p><code>1.3 接口interface中的抽象方法是规范</code></p>
+<p><code>实现类implements接口中重写的抽象方法是具体实现</code></p>
+<p><code>接口相比于抽象类可以实现多继承</code></p>
+<p><code>===========================================</code></p>
+<pre><code>//Student接口多继承person和cat接口
+package wiki.mrx.www;
+
+public interface Person {
+    void eat();
+}
+
+interface Cat {
+    void sleep();
+}
+
+interface Student extends Person, Cat{
+    void study();
+}
+</code></pre><pre><code>//StudentImp类是student接口的实现类，重写了他的抽象方法
+package wiki.mrx.www;
+
+public class StudentImp implements Student{
+    public StudentImp() {
+        super();
+    }
+
+    @Override
+    public void eat() {
+        System.out.println(&quot;学生可以吃&quot;);
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println(&quot;学生可以睡觉&quot;);
+    }
+
+    @Override
+    public void study() {
+        System.out.println(&quot;学生可以学习&quot;);
+    }
+}
+
+</code></pre><pre><code>package wiki.mrx.www;
+
+public class Test {
+    public static void main(String[] args) {
+        StudentImp s = new StudentImp();
+        s.eat();
+        s.sleep();
+        s.study();
+    }
+}
+
+</code></pre>
+    </div>
+</article>
+<div class="pagination">
+    
+    
+    <div class="next"> <a href="https://gyk19950104.github.io/backend/2.java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">Next Post</a> </div>
+    
+</div>
+
+
+        </main><footer class="site-footer">
+	<span class="right">
+		<em>gyk&#39;s blog</em>
+	</span>
+</footer>
+</body>
+</html>

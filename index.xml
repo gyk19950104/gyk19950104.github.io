@@ -5,10 +5,75 @@
     <link>https://gyk19950104.github.io/</link>
     <description>Recent content on gyk&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 04 May 2021 00:45:59 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jun 2021 17:40:00 +0800</lastBuildDate>
     
 	<atom:link href="https://gyk19950104.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>6.java杂项</title>
+      <link>https://gyk19950104.github.io/backend/6.java%E6%9D%82%E9%A1%B9/</link>
+      <pubDate>Tue, 01 Jun 2021 17:40:00 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/backend/6.java%E6%9D%82%E9%A1%B9/</guid>
+      <description>异常，包装类，注解，反射，枚举，泛型</description>
+    </item>
+    
+    <item>
+      <title>5。java集合框架</title>
+      <link>https://gyk19950104.github.io/backend/5.java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Tue, 01 Jun 2021 17:39:34 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/backend/5.java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>4.java网络编程</title>
+      <link>https://gyk19950104.github.io/backend/4.java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Tue, 01 Jun 2021 17:37:49 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/backend/4.java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>3.javaio流</title>
+      <link>https://gyk19950104.github.io/backend/3.javaio%E6%B5%81/</link>
+      <pubDate>Tue, 01 Jun 2021 17:37:33 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/backend/3.javaio%E6%B5%81/</guid>
+      <description>1.文件外 java将文件抽象为file类可以操作盘符上的文件
+package wiki.mrx.www; import java.io.File; public class FileTest { public static void main(String[] args) { File f = new File(&amp;quot;/Users/gyk/desktop/test.txt&amp;quot;); System.out.println(f.canExecute() ); System.out.println(f.canRead()); System.out.println(f.getName()); System.out.println(f.canWrite()); System.out.println(f.exists()); System.out.println(f.getAbsoluteFile()); System.out.println(f.getAbsolutePath()); System.out.println(f.getParentFile()); System.out.println(f.getPath()); System.out.println(f.isDirectory()); System.out.println(f.isHidden()); System.out.println(f.lastModified()); System.out.println(f.length()); System.out.println(f.list()); } } 2.文件内 文件的本质是二进制的数据，可以把他们想像成水源和管道，他们都有进有出，根据传输的用途分为：
+ 处理文本文件的字符流 处理非文本文件的字节流 减少硬盘操作次数的处理流 转换流 数据流操作基本数据类型和string 对象流操作引用类型数据  =========================================== 处理文本文件的字符流
+用FileReader和FileWriter完成文本文件复制,缓冲数组 ===========================================
+//用FileReader和FileWriter完成文本文件复制 package wiki.mrx.www; import java.io.*; public class FileTest { public static void main(String[] args) throws IOException { //1.新建源文件和目标文件 File f1 = new File(&amp;quot;/Users/gyk/desktop/test.</description>
+    </item>
+    
+    <item>
+      <title>Java多线程</title>
+      <link>https://gyk19950104.github.io/backend/2.java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+      <pubDate>Tue, 01 Jun 2021 17:22:28 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/backend/2.java%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <description>1.多线程 多线程就是指多核CPU同时干多件事 在java中开启多线程有三种方法： 继承Thread类， 实现Runnable接口 实现Callable接口 但Thread因为是类的继承，所以有单继承的弊端， Runnable是接口实现，可以进行多继承， 使用时implements实现接口重写run方法，但无返回值， Callable是接口实现，可以进行多继承，也有返回值， 根据不同情况，合理选择使用Runnable和Callable接口 开启多线程后，由于多个线程执行顺序是由CPU自行调度， 这种不确定性会引起执行结果的不稳定性，除执行顺序外， 还可能出现多个线程同时操作同一份资源的情况，这会导 致资源不安全，所以需要线程同步，它的本质是一种等待 的机制，在JDK5之前，我们可以通过synchronized方 法或者synchronized同步块来对资源进行隐式加锁，保 证安全，在JDK5之后，我们可以通过lock锁机制来显式加 锁，保证安全，一般少量代码用synchronized，大量代码 用lock锁 👉synchronized方法： 可以通过private关键字来保证数据对象只能被方法访问， 所以只需要对这个方法提出一套机制，这套机制就是 synchronized 关键字，即synchronized方法 👉synchronized同步块： 有时并不需要对数据添加private关键字 ，而是在代码 中直接使用synchronized( Obj ){ }同步块，obj是 类似于上面的私有数据对象 👉lock锁机制： 多线程编程时同步队列会出现很多常见涉及到锁的情形， 在java中将这些多线程常见情形抽象封装成开箱即用的 工具包，叫做JUC，常见的JUC.locks，JUC.automic 等，它包含了很多接口和实现类，可以拿来即用 =========================================== 2.1创建：thread，runnable，callable ===========================================
+//创建 //继承Thread类,重写run方法，新建对象后start开启线程 package wiki.mrx.www; public class TestThread extends Thread{ //主线程 public static void main(String[] args) { //创建并开启线程 TestThread t1 = new TestThread(); t1.start(); //主线程代码 for (int i=0;i&amp;lt;20;i++){ System.out.println(&amp;quot;我在学习多线程&amp;quot;+i); } } @Override public void run() { for (int i=0;i&amp;lt;20;i++){ System.</description>
+    </item>
+    
+    <item>
+      <title>java面向对象</title>
+      <link>https://gyk19950104.github.io/backend/1.java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</link>
+      <pubDate>Tue, 01 Jun 2021 17:22:15 +0800</pubDate>
+      
+      <guid>https://gyk19950104.github.io/backend/1.java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</guid>
+      <description>先有逻辑正确的思路，剩余的是重复的实践与积累
+1.面向对象 ===========================================
+1.1 类是有属性，方法和构造器的模版，对象是实例
+===========================================
+1.2 面向对象的三大特性：
+===========================================
+ 封装：修饰符，get,set方法 继承：extends，super，源头object 多态：同一行为，不同子类有不同表现，继承，子类重写父类方法，父类引用指向子类实例  //父类 package wiki.mrx.www; public class Person { //属性 private String name; static int age; //构造器：用于初始化数据 public Person(String name, int age) { this.name = name; this.age = age; } //get方法 public String getName() { return name; } public static int getAge() { return age; } //set方法 public void setName(String name) { this.name = name; } public static void setAge(int age) { Person.</description>
+    </item>
     
     <item>
       <title>黑血病毒</title>
@@ -27,25 +92,6 @@
 3.线索密码  1.第一本书密码：987 2.方向锁：上右左下 3.鸟笼密码：9527 4.电梯密码：930124 5.第二本书密码：723 6.QQ号码：661314/0504 7.电话号码：4107 8.电箱是假，用力拉绿线  2.控场术语 👉A区
 1.U盘插在哪里？ 各位警官，我们可以在车里驾驶座旁边寻找一下U盘插口 2.插完U盘音频没听清？ 各位警官，刚才火眼给我们留下的箱子密码是987 3.拿到手电后不知道干嘛的？ 各位警官，我们可以尝试用紫光手电寻找四周的报纸，看看有没有线索 3.看了报纸不知道什么意思 各位警官，我们有没有发现红色的字体呢，把红色的字体连成一句话的顺序，就是我们的密码。 4.不会解方向锁 各位警官，我们的方向锁每输错一次密码，要用力按两次锁头重置，就可以再次尝试了(右下上左) 5.插了钥匙后车子不降 各位可以先按动火眼留给我们的按钮，再重新尝试启动车子。 1.进入庭院后不知道干嘛 各位警官，我们还记得刚才报纸上面的那句话吗~（手提箱在树上） 2.打开手提箱之后不知道干嘛 各位警官，我们手提箱内有一个火眼留给我们的录音机，我们可以先听一下 3.听完不知道干嘛 各位警官，我们有一把酒店内部人员留给我们的钥匙，我们可以尝试寻找一下钥匙的插口 4.不知道怎么挂旗子 各位警官，我们可以根据图中所示的方式，破解密码。（7258 按照从右到左一个笑脸图案能看的出来） 5.打开鸟笼后不会解密 各位警官，我们有没有在鸟笼里发现一张酒店人员留给我们的图纸呢? 我们可以把图纸放到庭园里的一个木板上观察一下。 6.图纸放上去后不会解密 各位警官，我们木板上的线索有提到“把水注满”，把水倒入注水口，并且观察水流切割我们图纸中的图案 ，而木板左边有几个图案，对应图纸中的图案可以观察到数字密码。 （密码:930124“其中一个图案是两位密码”） 👉B区
 1.玩家进入难民房后不知道干嘛 各位警官，刚才我们走廊里的海报有提到，黑血病会使人的血液粘稠形成血栓， 我们可以寻找一下治疗血栓的药，让每位病人吃一粒。 2.喂完药不知道干嘛 各位警官，刚才火眼说他给我们的留的线索放在接待室的柜子上面，我们可以去检查一下。 3.不会解第二本书密码 各位警官，我们可以按照火眼留给我们的线索，把灯泡伸到管子里的左侧部分看看有什么线索。 （密码:732） 4.看完U盘视频不知道该干嘛 各位警官，我们可以按照视频里侯芳医生的方法，把衣柜门关紧，再把灯关掉，按照视频里的频率 用勺子敲击蒸笼。 5.敲击结束之后不知道该干嘛 各位警官，我们可以打开我们的衣柜，查看一下侯芳医生的秘密 6.打开衣柜不知道该干嘛 各位警官，我们可以从衣柜中发现侯芳医生的QQ号，不妨我们尝试登陆一下，看看能否进一步探索 到侯芳医生的秘密（账号：661314 密码:0504） 7.不知道怎么按密码 各位警官，我们可以按照QQ中的聊天记录，查看我们的蛋糕对应着的电话号码，拨打出去。（4107） 8.</description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>https://gyk19950104.github.io/backend/1.java/</link>
-      <pubDate>Thu, 11 Mar 2021 00:34:28 +0800</pubDate>
-      
-      <guid>https://gyk19950104.github.io/backend/1.java/</guid>
-      <description>1.SE基础 1.学习路线
-2.javaSE基础,ME嵌入式,EE网站后台
-3.jdk开发工具包，jre运行时，jvm虚拟机
-4.关键字是特殊的标识符
-5.数据类型：基本类型(字符，布尔，整型)和引用类型(类，接口，数组)
-修饰符 类型 变量名 = 值； 修饰符 返回值类型 函数名(){ }； 6.公司名倒置作为包名字com.baidu.www,在设置里将空文件不展示关闭
-7.文档注释：/**回车
-8.屏幕交互
- Scanner scanner = new Scanner(System.in); String str = scanner.next(); System.out.println(&amp;quot;输入的内容为：&amp;quot;+str); 9.重载：在同一个类中，同名不同参的函数，执行时根据参数不同自动选择对应的函数执行
-10.面向对象oop
-1.封装：单个类 类的创建与对象的实例化,包括构造器this，属性，方法 get与set方法 2.继承：类的单线串联 子类通过extends实现子承父业 子类调用父类前加super，在构造器中super()首行调用 子类重写父类方法，在子类对象调用该方法时，子类将继承来的方法进行了自己所需的改造而不是全盘接受 抽象类实现单继承的同时还可以在父类添加普通方法 接口实现多继承，完全将规范与实现分离 重载是函数名相同，对不同传参做不同处理 重写是函数名相同，当逻辑与父类中的完全不同，在有继承的情况下才能重写 3.多态: 多个类用一个方法 不同对象调用相同方法时产生的效果不一样，取决于对象左边的类型 多态满足：继承，子类重写父类方法，父类指向子类对象 //封装思想体现 package wiki.mrx.www; public class Application { public static void main(String[] args) { //实例化对象 Student student1 = new Student(); System.out.println(student1.getName()); System.out.println(student1.setName(&amp;quot;kkks&amp;quot;)); } } //封装思想体现 package wiki.</description>
     </item>
     
     <item>

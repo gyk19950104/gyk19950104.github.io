@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang=><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Java多线程 - gyk&#39;s blog</title>
+    <meta name="description" content="1.多线程 多线程就是指多核CPU同时干多件事 在java中开启多线程有三种方法： 继承Thread类， 实现Runnable接口 实现Callable接口 但Thread因为是类的继承，所以有单继承的弊端， Runnable是接口实现，可以进行多继承， 使用时implements实现接口重写run方法，但无返回值， Callable是接口实现，可以进行多继承，也有返回值， 根据不同情况，合理选择使用Runnable和Callable接口 开启多线程后，由于多个线程执行顺序是由CPU自行调度， 这种不确定性会引起执行结果的不稳定性，除执行顺序外， 还可能出现多个线程同时操作同一份资源的情况，这会导 致资源不安全，所以需要线程同步，它的本质是一种等待 的机制，在JDK5之前，我们可以通过synchronized方 法或者synchronized同步块来对资源进行隐式加锁，保 证安全，在JDK5之后，我们可以通过lock锁机制来显式加 锁，保证安全，一般少量代码用synchronized，大量代码 用lock锁 👉synchronized方法： 可以通过private关键字来保证数据对象只能被方法访问， 所以只需要对这个方法提出一套机制，这套机制就是 synchronized 关键字，即synchronized方法 👉synchronized同步块： 有时并不需要对数据添加private关键字 ，而是在代码 中直接使用synchronized( Obj ){ }同步块，obj是 类似于上面的私有数据对象 👉lock锁机制： 多线程编程时同步队列会出现很多常见涉及到锁的情形， 在java中将这些多线程常见情形抽象封装成开箱即用的 工具包，叫做JUC，常见的JUC.locks，JUC.automic 等，它包含了很多接口和实现类，可以拿来即用 =========================================== 2.1创建：thread，runnable，callable ===========================================
+//创建 //继承Thread类,重写run方法，新建对象后start开启线程 package wiki.mrx.www; public class TestThread extends Thread{ //主线程 public static void main(String[] args) { //创建并开启线程 TestThread t1 = new TestThread(); t1.start(); //主线程代码 for (int i=0;i&lt;20;i&#43;&#43;){ System.out.println(&quot;我在学习多线程&quot;&#43;i); } } @Override public void run() { for (int i=0;i&lt;20;i&#43;&#43;){ System.">
+    <link rel="canonical" href="https://gyk19950104.github.io/backend/2.java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+    <meta property="og:title" content="Java多线程">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://gyk19950104.github.io/backend/2.java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+    <meta property="og:description" content="1.多线程 多线程就是指多核CPU同时干多件事 在java中开启多线程有三种方法： 继承Thread类， 实现Runnable接口 实现Callable接口 但Thread因为是类的继承，所以有单继承的弊端， Runnable是接口实现，可以进行多继承， 使用时implements实现接口重写run方法，但无返回值， Callable是接口实现，可以进行多继承，也有返回值， 根据不同情况，合理选择使用Runnable和Callable接口 开启多线程后，由于多个线程执行顺序是由CPU自行调度， 这种不确定性会引起执行结果的不稳定性，除执行顺序外， 还可能出现多个线程同时操作同一份资源的情况，这会导 致资源不安全，所以需要线程同步，它的本质是一种等待 的机制，在JDK5之前，我们可以通过synchronized方 法或者synchronized同步块来对资源进行隐式加锁，保 证安全，在JDK5之后，我们可以通过lock锁机制来显式加 锁，保证安全，一般少量代码用synchronized，大量代码 用lock锁 👉synchronized方法： 可以通过private关键字来保证数据对象只能被方法访问， 所以只需要对这个方法提出一套机制，这套机制就是 synchronized 关键字，即synchronized方法 👉synchronized同步块： 有时并不需要对数据添加private关键字 ，而是在代码 中直接使用synchronized( Obj ){ }同步块，obj是 类似于上面的私有数据对象 👉lock锁机制： 多线程编程时同步队列会出现很多常见涉及到锁的情形， 在java中将这些多线程常见情形抽象封装成开箱即用的 工具包，叫做JUC，常见的JUC.locks，JUC.automic 等，它包含了很多接口和实现类，可以拿来即用 =========================================== 2.1创建：thread，runnable，callable ===========================================
+//创建 //继承Thread类,重写run方法，新建对象后start开启线程 package wiki.mrx.www; public class TestThread extends Thread{ //主线程 public static void main(String[] args) { //创建并开启线程 TestThread t1 = new TestThread(); t1.start(); //主线程代码 for (int i=0;i&lt;20;i&#43;&#43;){ System.out.println(&quot;我在学习多线程&quot;&#43;i); } } @Override public void run() { for (int i=0;i&lt;20;i&#43;&#43;){ System.">
+    <meta property="og:site_name" content="gyk&#39;s blog">
+    <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
+    <meta name="generator" content="Hugo 0.73.0" />
+    <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+    
+</head>
+<body><header class="site-header">
+    <nav class="site-nav" role="navigation" aria-label="breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb"><li class="breadcrumb-item  " 
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/">
+    <span itemprop="name">gyk&#39;s blog</span>
+  </a>
+  <meta itemprop="position" content="0" />
+</li>/<li class="breadcrumb-item  " 
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/backend/">
+    <span itemprop="name">backend</span>
+  </a>
+  <meta itemprop="position" content="0" />
+</li>/<li class="breadcrumb-item active hidden" aria-current="page"
+  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+  <a itemtype="https://schema.org/Thing" itemprop="item" href="https://gyk19950104.github.io/backend/2.java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+    <span itemprop="name">2.java%E5%A4%9A%E7%BA%BF%E7%A8%8B</span>
+  </a>
+  <meta itemprop="position" content="1" />
+</li></ol>
+    </nav>
+    <h1 class="site-title hidden">
+    <a href="https://gyk19950104.github.io">gyk&#39;s blog</a>
+    </h1>
+</header>
+<div>先有逻辑正确的思路，剩余的是重复的实践与积累</div>
+<main id="content">
+<article role="article" class="content post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">        
+        <h2 class="post-title" itemprop="name headline">Java多线程</h2>
+        <span class="post-meta">
+            <time class="date-published" datetime="2021-06-01T17:22:28&#43;07:00" itemprop="datePublished">
+                Tue, 1 Jun 2021
+            </time>
+            
+        </span>
+    </header>
+    <div class="post-content" itemprop="articleBody">
+        <h2 id="1多线程">1.多线程</h2>
+<pre><code>多线程就是指多核CPU同时干多件事
+在java中开启多线程有三种方法：
+继承Thread类，
+实现Runnable接口
+实现Callable接口
+但Thread因为是类的继承，所以有单继承的弊端，
+Runnable是接口实现，可以进行多继承，
+使用时implements实现接口重写run方法，但无返回值，
+Callable是接口实现，可以进行多继承，也有返回值，
+根据不同情况，合理选择使用Runnable和Callable接口
+
+开启多线程后，由于多个线程执行顺序是由CPU自行调度，
+这种不确定性会引起执行结果的不稳定性，除执行顺序外，
+还可能出现多个线程同时操作同一份资源的情况，这会导
+致资源不安全，所以需要线程同步，它的本质是一种等待
+的机制，在JDK5之前，我们可以通过synchronized方
+法或者synchronized同步块来对资源进行隐式加锁，保
+证安全，在JDK5之后，我们可以通过lock锁机制来显式加
+锁，保证安全，一般少量代码用synchronized，大量代码
+用lock锁
+
+👉synchronized方法：
+可以通过private关键字来保证数据对象只能被方法访问，
+所以只需要对这个方法提出一套机制，这套机制就是 
+synchronized 关键字，即synchronized方法
+
+👉synchronized同步块：
+有时并不需要对数据添加private关键字 ，而是在代码
+中直接使用synchronized( Obj ){ }同步块，obj是
+类似于上面的私有数据对象
+
+👉lock锁机制：
+多线程编程时同步队列会出现很多常见涉及到锁的情形，
+在java中将这些多线程常见情形抽象封装成开箱即用的
+工具包，叫做JUC，常见的JUC.locks，JUC.automic
+等，它包含了很多接口和实现类，可以拿来即用
+</code></pre><p><code>===========================================</code>
+<code>2.1创建：thread，runnable，callable</code>
+<code>===========================================</code></p>
+<pre><code>//创建
+//继承Thread类,重写run方法，新建对象后start开启线程
+package wiki.mrx.www;
+
+public class TestThread extends Thread{
+    //主线程
+    public static void main(String[] args) {
+        //创建并开启线程
+        TestThread t1 = new TestThread();
+        t1.start();
+        //主线程代码
+        for (int i=0;i&lt;20;i++){
+            System.out.println(&quot;我在学习多线程&quot;+i);
+        }
+
+    }
+
+    @Override
+    public void run() {
+        for (int i=0;i&lt;20;i++){
+            System.out.println(&quot;我在看代码&quot;+i);
+        }
+    }
+}
+
+</code></pre><pre><code>//实现Runnable接口：实现runnable接口，重写run方法，创建对象后丢入thread中start
+package wiki.mrx.www;
+//写的时候脑子里出现并行的主线 和 线程执行的线
+//创建implements Runnable的类后重写run方法，执行该线程内的逻辑
+//主线程Stop stop = new Stop();new Thread(stop).start();
+
+
+    public class TestThread implements Runnable{
+        //主线程
+        public static void main(String[] args) {
+            //创建并开启线程
+            TestThread testThread = new TestThread();
+            new Thread(testThread).start();
+            //主线程代码
+            for (int i=0;i&lt;20;i++){
+                System.out.println(&quot;我在学习多线程&quot;+i);
+            }
+
+        }
+
+        @Override
+        public void run() {
+            for (int i=0;i&lt;20;i++){
+                System.out.println(&quot;我在看代码&quot;+i);
+            }
+        }
+    }
+
+
+</code></pre><pre><code>//实现Callable接口
+
+
+
+</code></pre><pre><code>//停止
+package wiki.mrx.www;
+
+
+
+public class Stop implements Runnable {
+    //1.设置停止标志位
+    private boolean flag = true;
+
+    @Override
+    public void run() {
+        int i = 0;
+        while (flag){
+            System.out.println(&quot;run .... thrread&quot; + i++);
+        }
+    }
+
+    //2.设置公开停止方法
+    public void stop(){
+        this.flag = false;
+    }
+
+    //3.主线程
+    public static void main(String[] args) {
+        Stop stop = new Stop();
+        new Thread(stop).start();
+        for (int i = 0; i &lt; 1000; i++) {
+            System.out.println(&quot;main&quot;+i);
+            if(i==900){
+                stop.stop();
+                System.out.println(&quot;该线程停止&quot;);
+            }
+        }
+    }
+}
+
+
+</code></pre><p><code>===========================================</code>
+<code>2.2 并发：多线程同时抢夺同一资源，可用synchronized锁住资源进入队列模式，也可使用lock锁实现</code>
+<code>===========================================</code></p>
+<p><code>进程锁机制</code></p>
+<pre><code>//未上锁时不同进程抢夺同一资源时会导致资源被重复使用
+package wiki.mrx.www;
+
+public class UnsafeBuyTicket {
+    public static void main(String[] args) {
+        BuyTicket station = new BuyTicket();
+        new Thread(station,&quot;kk&quot;).start();
+        new Thread(station,&quot;nn&quot;).start();
+        new Thread(station,&quot;ll&quot;).start();
+    }
+}
+
+
+class BuyTicket implements Runnable{
+    private  int ticketNums = 10;
+    boolean flag = true;
+
+    @Override
+    public void run() {
+        //买票
+        while(flag){
+            buy();
+        }
+    }
+
+    private void buy(){
+        //判断是否有票
+        if(ticketNums &lt;=0 ){
+            flag = false;
+            return;
+        };
+        //模拟延时
+        try{
+            Thread.sleep(100);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+
+        System.out.println(Thread.currentThread().getName()+&quot;拿到&quot;+ticketNums--);
+    }
+};
+
+
+</code></pre><pre><code>//buy方法通过synchronized上锁
+package wiki.mrx.www;
+
+public class UnsafeBuyTicket {
+    public static void main(String[] args) {
+        BuyTicket station = new BuyTicket();
+        new Thread(station,&quot;kk&quot;).start();
+        new Thread(station,&quot;nn&quot;).start();
+        new Thread(station,&quot;ll&quot;).start();
+    }
+}
+
+
+class BuyTicket implements Runnable{
+    private  int ticketNums = 10;
+    boolean flag = true;
+
+    @Override
+    public void run() {
+        //买票
+        while(flag){
+            try{
+                buy();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private synchronized void buy() throws InterruptedException{
+        //判断是否有票
+        if(ticketNums &lt;=0 ){
+            flag = false;
+            return;
+        };
+        //模拟延时
+        Thread.sleep(100);
+
+        System.out.println(Thread.currentThread().getName()+&quot;拿到&quot;+ticketNums--);
+    }
+};
+</code></pre><p><code>死锁:多个线程互相占用对方的资源导致彼此都进行不下去</code></p>
+<pre><code>package wiki.mrx.www;
+
+public class DeadLock {
+    public static void main(String[] args) {
+        MakeUp g1 = new MakeUp(0,&quot;灰姑娘&quot;);
+        MakeUp g2 = new MakeUp(1,&quot;白雪公主&quot;);
+        g1.start();
+        g2.start();
+    }
+}
+
+//口红
+class LipStick{
+
+}
+
+//镜子
+class Mirror{
+
+}
+
+//化妆
+class MakeUp extends Thread{
+    //需要的资源只有一份
+    static LipStick lipstick = new LipStick();
+    static  Mirror mirror = new Mirror();
+
+    int choice;
+    String girlName;
+
+    MakeUp(int choice, String girlName){
+        this.choice = choice;
+        this.girlName = girlName;
+    }
+    @Override
+    public void run() {
+        try {
+            makeup();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
+    //化妆，互相持有对方的资源
+    private void makeup() throws InterruptedException{
+        if(choice == 0){
+            synchronized (lipstick){
+                //获得口红的锁
+                System.out.println(this.girlName+&quot;获得口红的资源&quot;);
+                Thread.sleep(1000);
+            }
+
+            synchronized (mirror){
+                //一秒钟后想获得镜子资源
+                System.out.println(this.girlName+&quot;获得镜子的资源&quot;);
+            }
+        }else{
+            synchronized (mirror){
+                //获得口红的锁
+                System.out.println(this.girlName+&quot;获得口红的资源&quot;);
+                Thread.sleep(2000);
+            }
+
+            synchronized (lipstick){
+                //一秒钟后想获得镜子资源
+                System.out.println(this.girlName+&quot;获得镜子的资源&quot;);
+            }
+        }
+    }
+}
+
+</code></pre><p><code>lock锁</code></p>
+<pre><code>package wiki.mrx.www;
+
+import java.util.concurrent.locks.ReentrantLock;
+
+public class TestLock {
+    public static void main(String[] args) {
+        TestLock2 testLock2 = new TestLock2();
+        new Thread(testLock2).start();
+        new Thread(testLock2).start();
+        new Thread(testLock2).start();
+    }
+}
+
+class TestLock2 implements Runnable{
+    int ticketNums = 10;
+    //定义lock锁
+    private final ReentrantLock lock = new ReentrantLock();
+
+    @Override
+    public void run() {
+        while(true){
+            try{
+                //加锁
+                lock.lock();
+                if(ticketNums &gt; 0){
+                    //模拟延时
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    //买票
+                    System.out.println(ticketNums--);
+                }else{
+                    break;
+                }
+            }finally {
+                //解锁
+                lock.unlock();
+            }
+        }
+    }
+}
+
+
+</code></pre><p><code>===========================================</code>
+<code>进程通信：多线程之间通信使用await进行唤醒等待，也可使用juc中condition.await/signal实现</code>
+<code>===========================================</code></p>
+<pre><code>package wiki.mrx.www;
+
+//1.管程法
+import com.sun.xml.internal.xsom.impl.SchemaImpl;
+
+//管程法
+//生产者，消费者，产品，缓冲区
+public class TestPC {
+    public static void main(String[] args) {
+        SynContainer container = new SynContainer();
+        new Productor(container).start();
+        new Consumer(container).start();
+    }
+}
+
+//生产者
+class Productor extends Thread{
+    SynContainer container;
+
+    public Productor(SynContainer container) {
+        this.container = container;
+    }
+    //生产
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 100; i++) {
+            container.push(new Chicken(i));
+            System.out.println(&quot;生产了&quot;+i+&quot;只鸡&quot;);
+        }
+    }
+}
+//消费者
+class Consumer extends Thread{
+    SynContainer container;
+
+    public Consumer(SynContainer container) {
+        this.container = container;
+    }
+    //消费
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 100; i++) {
+            System.out.println(&quot;消费了&quot;+container.pop().id+&quot;只鸡&quot;);
+        }
+    }
+}
+//产品
+class Chicken{
+    int id;
+    public Chicken(int id) {
+        this.id = id;
+    }
+}
+//缓冲区
+class SynContainer{
+    //需要一个容器大小
+    Chicken[] chickens = new Chicken[10];
+    //容器计数器
+    int count = 0;
+
+    //生产者放入产品
+    public synchronized void push(Chicken chicken){
+        //如果容器满了就需要等待消费者消费
+        if(count == chickens.length){
+            //通知消费者消费生产等待
+            try{
+                this.wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+        //如果没有满就需要丢入产品
+        chickens[count] = chicken;
+        count++;
+        //可以通知消费者消费了
+        this.notify();
+    }
+
+
+
+    //消费者消费产品
+    public synchronized Chicken pop(){
+        // 判断能否消费
+        if(count == 0){
+            //等待生产者生产，消费者等待
+            try{
+                this.wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+
+        //如果可以消费
+        count--;
+        Chicken chicken = chickens[count];
+
+        //通知生产者生产
+        this.notifyAll();
+        return chicken;
+
+    }
+
+}
+
+
+</code></pre><pre><code>
+package wiki.mrx.www;
+
+//2.信号灯法
+
+public class TestPC {
+    public static void main(String[] args) {
+        TV tv = new TV();
+        new Player(tv).start();
+        new Watcher(tv).start();
+    }
+}
+
+
+//生产者：演员
+class Player extends Thread{
+    TV tv;
+    public Player(TV tv){
+        this.tv = tv;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 20; i++) {
+            if(i%2==0){
+                this.tv.play(&quot;快乐大本营&quot;);
+            }else{
+                this.tv.play(&quot;抖音记录美好生活&quot;);
+            }
+        }
+    }
+}
+//消费者：观众
+class Watcher extends Thread{
+    TV tv;
+    public Watcher(TV tv){
+        this.tv = tv;
+    }
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 20; i++) {
+            tv.watch();
+        }
+}
+
+//产品：节目
+class TV {
+    //演员表演，观众等待T
+    //观众观看，演员等待F
+    String voice;
+    boolean flag = true;
+    //表演
+    public synchronized void play(String voice){
+        if(!flag){
+            try{
+                this.wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            };
+        };
+        System.out.println(&quot;演员表演了&quot;+voice);
+        
+        //通知观众观看
+        this.notifyAll();
+        this.voice = voice;
+        this.flag = !this.flag;
+    };
+
+    //观看
+    public synchronized void watch(){
+        if(flag){
+            try{
+                this.wait();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
+        System.out.println(&quot;观看了&quot;+voice);
+        //通知演员表演
+        this.notifyAll();
+        this.flag = !this.flag;
+    };
+
+}
+</code></pre><p><code>===========================================</code>
+<code>线程池：三大方法，七大参数，四大拒绝策略</code>
+<code>===========================================</code></p>
+<pre><code>import java.sql.Time;
+import java.util.concurrent.*;
+
+public class Thread {
+    public static void main(String[] args) {
+        //ExecutorService threadPool = Executors.newSingleThreadExecutor();//单个线程
+        //ExecutorService threadPool = Executors.newFixedThreadPool(5)；//固定大小的线程池
+        //ExecutorService threadPool = Executors.newCachedThreadPool();//可伸缩线程池
+        ExecutorService threadPool = new ThreadPoolExecutor(
+                2,
+                5,
+                3,
+                TimeUnit.SECONDS,
+                new LinkedBlockingDeque&lt;&gt;(3),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy()
+        );
+        try{
+            for(int i = 0; i&lt; 100; i++) {
+                threadPool.execute(() -&gt; System.out.println(&quot;ok&quot;));
+             }
+        }catch(Exception e){
+                e.printStackTrace();
+        }finally {
+            threadPool.shutdown();
+        }
+    }
+}
+
+</code></pre><p>1.多线程（一）：创建- runnable接口</p>
+<p><a href="https://www.kuangstudy.com/bbs/1380350988233326593">https://www.kuangstudy.com/bbs/1380350988233326593</a></p>
+<p>2.多线程（二）：并发-lock锁</p>
+<p><a href="https://www.kuangstudy.com/bbs/1380834418435944450">https://www.kuangstudy.com/bbs/1380834418435944450</a></p>
+<p>3.多线程（三）：通信-</p>
+<p><a href="https://www.kuangstudy.com/bbs/1374924783082303489">https://www.kuangstudy.com/bbs/1374924783082303489</a></p>
+<p>4.多线程（四）：JUC</p>
+<p><a href="https://www.kuangstudy.com/bbs/1374924783082303489">https://www.kuangstudy.com/bbs/1374924783082303489</a></p>
+
+    </div>
+</article>
+<div class="pagination">
+    
+    <div class="prev"> <a href="https://gyk19950104.github.io/backend/1.java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">Previous Post</a> </div>
+    
+    
+    <div class="next"> <a href="https://gyk19950104.github.io/backend/3.javaio%E6%B5%81/">Next Post</a> </div>
+    
+</div>
+
+
+        </main><footer class="site-footer">
+	<span class="right">
+		<em>gyk&#39;s blog</em>
+	</span>
+</footer>
+</body>
+</html>
