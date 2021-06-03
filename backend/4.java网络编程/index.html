@@ -4,12 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> 4.java网络编程 - gyk&#39;s blog</title>
-    <meta name="description" content="">
+    <meta name="description" content="1.基础知识 网络互联需要ip和端口，传输时需要遵守一定的规则，这个规则就是网络传输协议，即四层传输协议：
+ 应用层http 传输层udp,tcp 网络层ip 链路层  2.tcp协议 三次握手：客户端与服务器建立连接
+四次挥手：客户端与服务器断开连接
+//客户端 package wiki.mrx.www; import java.io.*; import java.net.Socket; import java.util.Scanner; public class TestClient { public static void main(String[] args){ System.out.println(&quot;客户端启动了&quot;); //1.创建套接字，指定ip和端口 Socket s = null; OutputStream os = null; ObjectOutputStream oos = null; InputStream is = null; DataInputStream dis = null; try { s = new Socket(&quot;192.168.18.5&quot;,8888); //录入账号密码 Scanner sc = new Scanner(System.in); System.out.println(&quot;请录入账号：&quot;); String name = sc.next(); System.out.println(&quot;请录入密码：&quot;); String pwd = sc.">
     <link rel="canonical" href="https://gyk19950104.github.io/backend/4.java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
     <meta property="og:title" content="4.java网络编程">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://gyk19950104.github.io/backend/4.java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
-    <meta property="og:description" content="">
+    <meta property="og:description" content="1.基础知识 网络互联需要ip和端口，传输时需要遵守一定的规则，这个规则就是网络传输协议，即四层传输协议：
+ 应用层http 传输层udp,tcp 网络层ip 链路层  2.tcp协议 三次握手：客户端与服务器建立连接
+四次挥手：客户端与服务器断开连接
+//客户端 package wiki.mrx.www; import java.io.*; import java.net.Socket; import java.util.Scanner; public class TestClient { public static void main(String[] args){ System.out.println(&quot;客户端启动了&quot;); //1.创建套接字，指定ip和端口 Socket s = null; OutputStream os = null; ObjectOutputStream oos = null; InputStream is = null; DataInputStream dis = null; try { s = new Socket(&quot;192.168.18.5&quot;,8888); //录入账号密码 Scanner sc = new Scanner(System.in); System.out.println(&quot;请录入账号：&quot;); String name = sc.next(); System.out.println(&quot;请录入密码：&quot;); String pwd = sc.">
     <meta property="og:site_name" content="gyk&#39;s blog">
     <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
     <meta name="generator" content="Hugo 0.73.0" />
@@ -56,7 +62,311 @@
         </span>
     </header>
     <div class="post-content" itemprop="articleBody">
-        
+        <h2 id="1基础知识">1.基础知识</h2>
+<p><code>网络互联需要ip和端口，传输时需要遵守一定的规则，这个规则就是网络传输协议，即四层传输协议：</code></p>
+<ul>
+<li>应用层http</li>
+<li>传输层udp,tcp</li>
+<li>网络层ip</li>
+<li>链路层</li>
+</ul>
+<h2 id="2tcp协议">2.tcp协议</h2>
+<p><code>三次握手：客户端与服务器建立连接</code></p>
+<p><code>四次挥手：客户端与服务器断开连接</code></p>
+<pre><code>//客户端
+package wiki.mrx.www;
+
+import java.io.*;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class TestClient {
+    public static void main(String[] args){
+        System.out.println(&quot;客户端启动了&quot;);
+        //1.创建套接字，指定ip和端口
+        Socket s = null;
+        OutputStream os = null;
+        ObjectOutputStream oos = null;
+        InputStream is = null;
+        DataInputStream dis = null;
+        try {
+            s = new Socket(&quot;192.168.18.5&quot;,8888);
+            //录入账号密码
+            Scanner sc = new Scanner(System.in);
+            System.out.println(&quot;请录入账号：&quot;);
+            String name = sc.next();
+            System.out.println(&quot;请录入密码：&quot;);
+            String pwd = sc.next();
+            User user = new User(name,pwd);
+
+
+            //2.向服务器发送数据
+            os = s.getOutputStream();
+            oos = new ObjectOutputStream(os);
+            oos.writeObject(user);
+
+            //3.接受服务器回话
+            is = s.getInputStream();
+            dis = new DataInputStream(is);
+            boolean b = dis.readBoolean();
+            if(b){
+                System.out.println(&quot;登录成功&quot;);
+            }else{
+                System.out.println(&quot;登陆失败&quot;);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            //4.关闭流和网络资源
+            try {
+                dis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                os.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                s.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+</code></pre><pre><code>//服务端
+package wiki.mrx.www;
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class TestServer {
+    public static void main(String[] args){
+        System.out.println(&quot;服务器启动了&quot;);
+        //1.创建套接字，指定IP和端口
+        ServerSocket ss = null;
+        Socket s = null;
+        int count = 0;//访客计数器
+        try {
+            ss = new ServerSocket(8888);
+           //死循环一直监听8888端口传来的套接字
+            while (true){
+               s = ss.accept();
+               //接收到套接字后开启一个线程去处理
+               new ServerThread(s).start();
+               count++;
+                System.out.println(&quot;共有&quot;+count+&quot;次访问！&quot;);
+           }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                ss.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+
+</code></pre><pre><code>//服务端线程轮循
+package wiki.mrx.www;
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ServerThread extends Thread {
+    InputStream is = null;
+    ObjectInputStream ois = null;
+    OutputStream os = null;
+    DataOutputStream dos = null;
+    Socket s = null;
+    public ServerThread(Socket s){
+         this.s = s;
+    }
+    @Override
+    public void run() {
+        try {
+
+            //2.接受客户端消息
+            is = s.getInputStream();
+            ois = new ObjectInputStream(is);
+            User user = (User)(ois.readObject());
+            boolean flag = false;
+            if(user.getName().equals(&quot;kk&quot;) &amp;&amp; user.getPwd().equals(&quot;123&quot;)){
+                flag = true;
+            }
+
+            //3.向客户端发消息
+            os = s.getOutputStream();
+            dos = new DataOutputStream(os);
+            dos.writeBoolean(flag);
+        }catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            //4.关闭网络资源
+            try {
+                dos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                os.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                ois.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+</code></pre><pre><code>//客户端数据包装
+package wiki.mrx.www;
+
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = -8174829232455331182L;
+    private String name;
+    private String pwd;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public User(String name, String pwd) {
+        this.name = name;
+        this.pwd = pwd;
+    }
+}
+read
+</code></pre><h2 id="3udp协议">3.udp协议</h2>
+<pre><code>package wiki.mrx.www;
+
+import java.io.IOException;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
+public class TestReceive {
+    public static void main(String[] args){
+        System.out.println(&quot;老师上线了&quot;);
+        //1.创建套接字
+        DatagramSocket ds = null;
+        try {
+            ds = new DatagramSocket(9999);
+            while (true){
+                //2.接受数据包
+                byte[] b = new byte[1024];
+                DatagramPacket dp = new DatagramPacket(b,b.length);
+                ds.receive(dp);
+                byte[] data = dp.getData();
+                String s = new String(data);
+                System.out.println(&quot;学生：&quot;+s);
+
+                //3.开始回复
+                Scanner sc = new Scanner(System.in);
+                System.out.println(&quot;老师：&quot;);
+                String str = sc.next();
+                byte[] bytes = str.getBytes();
+                DatagramPacket dp2 = new DatagramPacket(bytes,bytes.length, InetAddress.getByName(&quot;localhost&quot;),8888);
+                ds.send(dp2);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            //4.关闭资源
+            assert ds != null;
+            ds.close();
+        }
+    }
+}
+
+
+</code></pre><pre><code>package wiki.mrx.www;
+
+import java.io.IOException;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
+public class TestSend {
+    public static void main(String[] args) {
+        System.out.println(&quot;学生上线&quot;);
+        //1.准备套接字
+        DatagramSocket ds = null;
+        try {
+            ds = new DatagramSocket(8888);
+            while (true){
+                //2.发送数据包
+                Scanner sc = new Scanner(System.in);
+                String str = sc.next();
+                byte[] bytes = str.getBytes();
+        /*
+         1.传送数据转化成字节数组
+         2.字节数组的长度
+         3.接收方的ip
+         4.接受方的端口
+         */
+                DatagramPacket dp = new DatagramPacket(bytes,bytes.length, InetAddress.getByName(&quot;localhost&quot;),9999);
+                ds.send(dp);
+
+                //3.接受回复信息
+                byte[] b = new byte[1024];
+                DatagramPacket dp2 = new DatagramPacket(b,b.length);
+                ds.receive(dp2);
+                byte[] data = dp2.getData();
+                String s = new String(data,0,dp2.getLength());
+                System.out.println(&quot;老师：&quot;+s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            //4.关闭资源
+            assert ds != null;
+            ds.close();
+        }
+    }
+}
+
+</code></pre>
     </div>
 </article>
 <div class="pagination">

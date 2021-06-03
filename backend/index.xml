@@ -25,7 +25,7 @@
       <pubDate>Tue, 01 Jun 2021 17:39:34 +0800</pubDate>
       
       <guid>https://gyk19950104.github.io/backend/5.java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/</guid>
-      <description></description>
+      <description>1.基础知识 </description>
     </item>
     
     <item>
@@ -34,7 +34,10 @@
       <pubDate>Tue, 01 Jun 2021 17:37:49 +0800</pubDate>
       
       <guid>https://gyk19950104.github.io/backend/4.java%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
-      <description></description>
+      <description>1.基础知识 网络互联需要ip和端口，传输时需要遵守一定的规则，这个规则就是网络传输协议，即四层传输协议：
+ 应用层http 传输层udp,tcp 网络层ip 链路层  2.tcp协议 三次握手：客户端与服务器建立连接
+四次挥手：客户端与服务器断开连接
+//客户端 package wiki.mrx.www; import java.io.*; import java.net.Socket; import java.util.Scanner; public class TestClient { public static void main(String[] args){ System.out.println(&amp;quot;客户端启动了&amp;quot;); //1.创建套接字，指定ip和端口 Socket s = null; OutputStream os = null; ObjectOutputStream oos = null; InputStream is = null; DataInputStream dis = null; try { s = new Socket(&amp;quot;192.168.18.5&amp;quot;,8888); //录入账号密码 Scanner sc = new Scanner(System.in); System.out.println(&amp;quot;请录入账号：&amp;quot;); String name = sc.next(); System.out.println(&amp;quot;请录入密码：&amp;quot;); String pwd = sc.</description>
     </item>
     
     <item>
