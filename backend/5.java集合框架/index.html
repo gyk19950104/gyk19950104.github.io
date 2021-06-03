@@ -3,13 +3,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> 5。java集合框架 - gyk&#39;s blog</title>
-    <meta name="description" content="1.基础知识 ">
+    <title> 5。java集合容器 - gyk&#39;s blog</title>
+    <meta name="description" content="1.基础知识 算法：解决问题的方法，可用时间复杂度，空间复杂度来评判效率
+数据结构：组织管理数据
+逻辑上表现为：线性表，图，树，堆，栈
+物理上表现为：紧密顺序结构，跳转链式结构
+集合用于存储引用类型数据，具体分为：
+ Collection接口  List子接口  ArrayList实现类 Vector实现类 LinkedList实现类   Set子接口  HashSet实现类 TreeSet实现类     Map接口  HashMap TreeMap    2.Collection接口 package wiki.mrx.www; import java.util.ArrayList; import java.util.Collection; import java.util.Iterator; public class TestCollection { public static void main(String[] args) { //创建对象 Collection col = new ArrayList(); //增 col.add(18); col.add(18); col.add(18); col.add(18); //增强型for循环遍历 for (Object o: col) { System.out.println(o); } //iterator遍历 Iterator it = col.">
     <link rel="canonical" href="https://gyk19950104.github.io/backend/5.java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">
-    <meta property="og:title" content="5。java集合框架">
+    <meta property="og:title" content="5。java集合容器">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://gyk19950104.github.io/backend/5.java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">
-    <meta property="og:description" content="1.基础知识 ">
+    <meta property="og:description" content="1.基础知识 算法：解决问题的方法，可用时间复杂度，空间复杂度来评判效率
+数据结构：组织管理数据
+逻辑上表现为：线性表，图，树，堆，栈
+物理上表现为：紧密顺序结构，跳转链式结构
+集合用于存储引用类型数据，具体分为：
+ Collection接口  List子接口  ArrayList实现类 Vector实现类 LinkedList实现类   Set子接口  HashSet实现类 TreeSet实现类     Map接口  HashMap TreeMap    2.Collection接口 package wiki.mrx.www; import java.util.ArrayList; import java.util.Collection; import java.util.Iterator; public class TestCollection { public static void main(String[] args) { //创建对象 Collection col = new ArrayList(); //增 col.add(18); col.add(18); col.add(18); col.add(18); //增强型for循环遍历 for (Object o: col) { System.out.println(o); } //iterator遍历 Iterator it = col.">
     <meta property="og:site_name" content="gyk&#39;s blog">
     <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
     <meta name="generator" content="Hugo 0.73.0" />
@@ -47,7 +57,7 @@
 <main id="content">
 <article role="article" class="content post h-entry" itemscope="" itemtype="http://schema.org/BlogPosting">
     <header class="post-header">        
-        <h2 class="post-title" itemprop="name headline">5。java集合框架</h2>
+        <h2 class="post-title" itemprop="name headline">5。java集合容器</h2>
         <span class="post-meta">
             <time class="date-published" datetime="2021-06-01T17:39:34&#43;07:00" itemprop="datePublished">
                 Tue, 1 Jun 2021
@@ -57,7 +67,166 @@
     </header>
     <div class="post-content" itemprop="articleBody">
         <h2 id="1基础知识">1.基础知识</h2>
+<p><code>算法：解决问题的方法，可用时间复杂度，空间复杂度来评判效率</code></p>
+<p><code>数据结构：组织管理数据</code></p>
+<p><code>逻辑上表现为：线性表，图，树，堆，栈</code></p>
+<p><code>物理上表现为：紧密顺序结构，跳转链式结构</code></p>
+<p><code>集合用于存储引用类型数据，具体分为：</code></p>
+<ul>
+<li>Collection接口
+<ul>
+<li>List子接口
+<ul>
+<li>ArrayList实现类</li>
+<li>Vector实现类</li>
+<li>LinkedList实现类</li>
+</ul>
+</li>
+<li>Set子接口
+<ul>
+<li>HashSet实现类</li>
+<li>TreeSet实现类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Map接口
+<ul>
+<li>HashMap</li>
+<li>TreeMap</li>
+</ul>
+</li>
+</ul>
+<h2 id="2collection接口">2.Collection接口</h2>
+<pre><code>package wiki.mrx.www;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+public class TestCollection {
+    public static void main(String[] args) {
+        //创建对象
+        Collection col = new ArrayList();
+
+        //增
+        col.add(18);
+        col.add(18);
+        col.add(18);
+        col.add(18);
+
+        //增强型for循环遍历
+        for (Object o: col) {
+            System.out.println(o);
+        }
+        
+        //iterator遍历
+        Iterator it = col.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+
+        //删
+        col.clear();
+        col.remove(18);
+        
+        //查
+        col.size();
+        col.isEmpty();
+        col.equals(null);
+        col.contains(18);
+        
+        System.out.println(col);
+    }
+}
+
+</code></pre><h3 id="21-list接口">2.1 List接口</h3>
+<pre><code>package wiki.mrx.www;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class TestList {
+    public static void main(String[] args) {
+        //创建对象
+        List list = new ArrayList();
+
+        //增加
+        list.add(18);
+        list.add(18);
+        list.add(18);
+        list.add(3,88);
+
+        //删除
+        list.remove(2);
+
+        //修改
+        list.set(2,99);
+
+        //查询
+        for (int i = 0; i &lt; list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
+        for (Object o : list){
+            System.out.println(o);
+        }
+
+        Iterator it = list.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
+}
+
+</code></pre><h4 id="211-arraylist实现类jdk18源码">2.1.1 ArrayList实现类jdk1.8源码</h4>
+<pre><code>transient Object[] elementData;//源码底层存储空间是一个object类型的数组，所以可以传入任意类型的数据
+private int size;//存储空间的大小
+
+private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;//当new ArrayList()时，elementData=空数组
+
+ensureCapacityInternal(size + 1);//当调用al.add(1)时,会先进行扩容10
+elementData = Arrays.copyOf(elementData, newCapacity);
+</code></pre><h4 id="212-linkedlist实现类jdk18源码">2.1.2 LinkedList实现类jdk1.8源码</h4>
+<pre><code>public class LinkedList&lt;E&gt;//源码底层泛型为E，说明数据类型在创建对象是确定
+//存储空间是包含头尾节点的链表node
+transient Node&lt;E&gt; first;
+transient Node&lt;E&gt; last;
+Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) {
+    this.item = element;
+    this.next = next;
+    this.prev = prev;
+ }
+//add添加时
+void linkLast(E e) {
+    //last节点给1，如果是第一个元素1为null
+    final Node&lt;E&gt; l = last;
+    //包装对象
+    final Node&lt;E&gt; newNode = new Node&lt;&gt;(l, e, null);
+    //last节点指向包装好的对象
+    last = newNode;
+    if (l == null)//如果添加的是第一个节点
+        first = newNode;//first指向新节点
+    else//如果添加的不是第一个节点
+        l.next = newNode;//将l的下一个指向新节点
+    size++;//集合元素数量加1
+    modCount++;
+}
+
+</code></pre><h3 id="22-set子接口">2.2 Set子接口</h3>
+<pre><code>
+</code></pre><h3 id="221-hashset实现类">2.2.1 HashSet实现类</h3>
+<pre><code>
+</code></pre><h3 id="222-treeset实现类">2.2.2 TreeSet实现类</h3>
+<pre><code>
+</code></pre><h2 id="3map接口">3.Map接口</h2>
+<h3 id="31-hashmap">3.1 HashMap</h3>
+<pre><code>
+</code></pre><h3 id="32-treemap">3.2 TreeMap</h3>
+<pre><code>
+</code></pre>
     </div>
 </article>
 <div class="pagination">
