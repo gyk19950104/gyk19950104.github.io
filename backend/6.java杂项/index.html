@@ -5,13 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> 6.java杂项 - gyk&#39;s blog</title>
     <meta name="description" content="1.泛型 泛型：检测或设置引用数据类型
- 在集合中加泛型可以规定存入集合的数据类型，便于后续遍历 在类中加泛型可以后期传入具体的数据类型，而不必提前规定  package wiki.mrx.www; class Testa&lt;E&gt; { public void test(E m){ } } public class Test { public static void main(String[] args) { Testa&lt;String&gt; t = new Testa&lt;&gt;(); t.test(&quot;test&quot;); } } 异常，包装类，注解，反射，枚举">
+ 在集合中加泛型可以规定存入集合的数据类型，便于后续遍历 在类中加泛型可以后期传入具体的数据类型，而不必提前规定  package wiki.mrx.www; class Testa&lt;E&gt; { public void test(E m){ } } public class Test { public static void main(String[] args) { Testa&lt;String&gt; t = new Testa&lt;&gt;(); t.test(&quot;test&quot;); } } 2.异常 异常都继承于Throwable类，具体分类如下：
+ Error Exception  检查异常 运行时异常 可以使用如下结构处理异常：    try{ }catch (Exception e){ e.printStackTrace(); }finally { } 3.注解 注解Annotation：代码编译时会被读取并自动操作标记好的内容
+JDK内置了3个注解：@Override重写，@Deprecated过时标记 @SuppressWarnings抑制警告
+jdk5.0提供了4个源注解：Retention生命周期 Target作用目标 Documented文档 Inherited继承
+4.枚举 枚举类enum：可创建的对象个数是有限的，确定的
+package wiki.mrx; public class Season { private final String seasonName; private final String seasonDesc; private Season(String seasonName, String seasonDesc) { this.">
     <link rel="canonical" href="https://gyk19950104.github.io/backend/6.java%E6%9D%82%E9%A1%B9/">
     <meta property="og:title" content="6.java杂项">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://gyk19950104.github.io/backend/6.java%E6%9D%82%E9%A1%B9/">
     <meta property="og:description" content="1.泛型 泛型：检测或设置引用数据类型
- 在集合中加泛型可以规定存入集合的数据类型，便于后续遍历 在类中加泛型可以后期传入具体的数据类型，而不必提前规定  package wiki.mrx.www; class Testa&lt;E&gt; { public void test(E m){ } } public class Test { public static void main(String[] args) { Testa&lt;String&gt; t = new Testa&lt;&gt;(); t.test(&quot;test&quot;); } } 异常，包装类，注解，反射，枚举">
+ 在集合中加泛型可以规定存入集合的数据类型，便于后续遍历 在类中加泛型可以后期传入具体的数据类型，而不必提前规定  package wiki.mrx.www; class Testa&lt;E&gt; { public void test(E m){ } } public class Test { public static void main(String[] args) { Testa&lt;String&gt; t = new Testa&lt;&gt;(); t.test(&quot;test&quot;); } } 2.异常 异常都继承于Throwable类，具体分类如下：
+ Error Exception  检查异常 运行时异常 可以使用如下结构处理异常：    try{ }catch (Exception e){ e.printStackTrace(); }finally { } 3.注解 注解Annotation：代码编译时会被读取并自动操作标记好的内容
+JDK内置了3个注解：@Override重写，@Deprecated过时标记 @SuppressWarnings抑制警告
+jdk5.0提供了4个源注解：Retention生命周期 Target作用目标 Documented文档 Inherited继承
+4.枚举 枚举类enum：可创建的对象个数是有限的，确定的
+package wiki.mrx; public class Season { private final String seasonName; private final String seasonDesc; private Season(String seasonName, String seasonDesc) { this.">
     <meta property="og:site_name" content="gyk&#39;s blog">
     <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
     <meta name="generator" content="Hugo 0.73.0" />
@@ -78,8 +88,122 @@ public class Test {
        t.test(&quot;test&quot;);
     }
 }
-</code></pre><p><code>异常，包装类，注解，反射，枚举</code></p>
+</code></pre><h2 id="2异常">2.异常</h2>
+<p><code>异常都继承于Throwable类，具体分类如下：</code></p>
+<ul>
+<li>Error</li>
+<li>Exception
+<ul>
+<li>检查异常</li>
+<li>运行时异常
+<code>可以使用如下结构处理异常：</code></li>
+</ul>
+</li>
+</ul>
+<pre><code>try{
+            
+}catch (Exception e){
+    e.printStackTrace();
+}finally {
+            
+}
+</code></pre><h2 id="3注解">3.注解</h2>
+<p><code>注解Annotation：代码编译时会被读取并自动操作标记好的内容</code></p>
+<p><code>JDK内置了3个注解：@Override重写，@Deprecated过时标记 @SuppressWarnings抑制警告</code></p>
+<p><code>jdk5.0提供了4个源注解：Retention生命周期 Target作用目标 Documented文档 Inherited继承</code></p>
+<h2 id="4枚举">4.枚举</h2>
+<p><code>枚举类enum：可创建的对象个数是有限的，确定的</code></p>
+<pre><code>package wiki.mrx;
 
+public class Season {
+    private final String seasonName;
+    private final String seasonDesc;
+
+    private Season(String seasonName, String seasonDesc) {
+        this.seasonName = seasonName;
+        this.seasonDesc = seasonDesc;
+    }
+
+    public static final Season SPRING = new Season(&quot;春天&quot;,&quot;春暖花开&quot;);
+    public static final Season SUMMER = new Season(&quot;夏天&quot;,&quot;夏日炎炎&quot;);
+    public static final Season AUTUMN = new Season(&quot;秋天&quot;,&quot;秋高气爽&quot;);
+    public static final Season WINTER = new Season(&quot;冬天&quot;,&quot;寒冬腊月&quot;);
+
+    public String getSeasonName() {
+        return seasonName;
+    }
+
+    public String getSeasonDesc() {
+        return seasonDesc;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Season{&quot; +
+                &quot;seasonName='&quot; + seasonName + '\'' +
+                &quot;, seasonDesc='&quot; + seasonDesc + '\'' +
+                '}';
+    }
+}
+
+
+</code></pre><pre><code>package wiki.mrx;
+
+public class TestSeason {
+    public static void main(String[] args) {
+        Season summer = Season.SUMMER;
+        System.out.println(summer);
+    }
+}
+
+</code></pre><pre><code>package wiki.mrx;
+
+public enum Season {
+    SPRING(&quot;春天&quot;,&quot;春暖花开&quot;),
+    SUMMER(&quot;夏天&quot;,&quot;夏日炎炎&quot;),
+    AUTUMN(&quot;秋天&quot;,&quot;秋高气爽&quot;),
+    WINTER(&quot;冬天&quot;,&quot;寒冬腊月&quot;);
+    private final String seasonName;
+    private final String seasonDesc;
+
+    private Season(String seasonName, String seasonDesc) {
+        this.seasonName = seasonName;
+        this.seasonDesc = seasonDesc;
+    }
+
+    
+
+    public String getSeasonName() {
+        return seasonName;
+    }
+
+    public String getSeasonDesc() {
+        return seasonDesc;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Season{&quot; +
+                &quot;seasonName='&quot; + seasonName + '\'' +
+                &quot;, seasonDesc='&quot; + seasonDesc + '\'' +
+                '}';
+    }
+}
+
+</code></pre><pre><code>package wiki.mrx;
+
+public enum Season {
+    SPRING,
+    SUMMER,
+    AUTUMN,
+    WINTER;
+
+}
+
+
+</code></pre><h2 id="5反射">5.反射</h2>
+<pre><code>
+</code></pre>
     </div>
 </article>
 <div class="pagination">
