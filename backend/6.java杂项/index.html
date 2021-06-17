@@ -201,8 +201,92 @@ public enum Season {
 }
 
 
-</code></pre><h2 id="5反射">5.反射</h2>
-<pre><code>
+</code></pre><h2 id="5反射reflect">5.反射reflect</h2>
+<p><code>反射：动态获取和调用类或对象信息的机制</code></p>
+<pre><code>package wiki.mrx;
+
+import java.util.Arrays;
+
+public class TestReflect {
+    public static void main(String[] args) throws Exception {
+        Person person = new Person();
+        System.out.println(person.getClass());
+        System.out.println(Person.class);
+        System.out.println(Class.forName(&quot;wiki.mrx.Person&quot;));//调用class静态方法
+        System.out.println(TestReflect.class.getClassLoader().loadClass(&quot;wiki.mrx.Person&quot;));
+        System.out.println(Person.class.getConstructor());//获得构造器
+        System.out.println(Person.class.newInstance());//创造对象
+        System.out.println(Arrays.toString(Person.class.getFields()));//获取属性
+        System.out.println(Arrays.toString(Person.class.getMethods()));//获取方法
+    }
+}
+
+</code></pre><h2 id="6gui基础">6.GUI基础</h2>
+<ul>
+<li>AWT
+<ul>
+<li>组件：button，label，textarea&hellip;</li>
+<li>容器
+<ul>
+<li>窗口window
+<ul>
+<li>frame</li>
+<li>dialog</li>
+</ul>
+</li>
+<li>面板panel
+<ul>
+<li>applet</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SWIG
+<ul>
+<li>jFrame</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<pre><code>//awt例子
+package wiki.mrx;
+
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class TestGUI {
+    public static void main(String[] args) {
+        //1.新建窗口和面板
+        Frame frame = new Frame();
+        Panel panel = new Panel();
+
+        //2.窗口属性设置
+        frame.setLayout(null);
+        frame.setBounds(300,300,500,500);
+        frame.setBackground(new Color(3,6,9));
+
+        //3.面板属性设置
+        panel.setBounds(50,50,400,400);
+        panel.setBackground(new Color(0, 251, 141));
+
+        //4.窗口中放置面板
+        frame.add(panel);
+        frame.setVisible(true);
+
+        //5.创建监听事件
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+    }
+}
+
+
 </code></pre>
     </div>
 </article>
@@ -210,6 +294,8 @@ public enum Season {
     
     <div class="prev"> <a href="https://gyk19950104.github.io/backend/5.java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">Previous Post</a> </div>
     
+    
+    <div class="next"> <a href="https://gyk19950104.github.io/backend/7.%E6%95%B0%E6%8D%AE%E5%BA%93/">Next Post</a> </div>
     
 </div>
 

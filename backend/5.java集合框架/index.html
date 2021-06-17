@@ -9,7 +9,7 @@
 逻辑上表现为：线性表，图，树，堆，栈
 物理上表现为：紧密顺序结构，跳转链式结构
 集合用于存储引用类型数据，具体分为：
- Collection接口  List子接口  ArrayList实现类 Vector实现类 LinkedList实现类   Set子接口  HashSet实现类 TreeSet实现类     Map接口  HashMap TreeMap    2.Collection接口 package wiki.mrx.www; import java.util.ArrayList; import java.util.Collection; import java.util.Iterator; public class TestCollection { public static void main(String[] args) { //创建对象 Collection col = new ArrayList(); //增 col.add(18); col.add(18); col.add(18); col.add(18); //增强型for循环遍历 for (Object o: col) { System.out.println(o); } //iterator遍历 Iterator it = col.">
+ Collection接口  List子接口  ArrayList实现类 Vector实现类 LinkedList实现类   Set子接口  HashSet实现类  LinkedHashSet实现类   TreeSet实现类     Map接口  HashMap TreeMap    2.Collection接口 package wiki.mrx.www; import java.util.ArrayList; import java.util.Collection; import java.util.Iterator; public class TestCollection { public static void main(String[] args) { //创建对象 Collection col = new ArrayList(); //增 col.add(18); col.add(18); col.add(18); col.add(18); //增强型for循环遍历 for (Object o: col) { System.">
     <link rel="canonical" href="https://gyk19950104.github.io/backend/5.java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">
     <meta property="og:title" content="5。java集合容器">
     <meta property="og:type" content="article">
@@ -19,7 +19,7 @@
 逻辑上表现为：线性表，图，树，堆，栈
 物理上表现为：紧密顺序结构，跳转链式结构
 集合用于存储引用类型数据，具体分为：
- Collection接口  List子接口  ArrayList实现类 Vector实现类 LinkedList实现类   Set子接口  HashSet实现类 TreeSet实现类     Map接口  HashMap TreeMap    2.Collection接口 package wiki.mrx.www; import java.util.ArrayList; import java.util.Collection; import java.util.Iterator; public class TestCollection { public static void main(String[] args) { //创建对象 Collection col = new ArrayList(); //增 col.add(18); col.add(18); col.add(18); col.add(18); //增强型for循环遍历 for (Object o: col) { System.out.println(o); } //iterator遍历 Iterator it = col.">
+ Collection接口  List子接口  ArrayList实现类 Vector实现类 LinkedList实现类   Set子接口  HashSet实现类  LinkedHashSet实现类   TreeSet实现类     Map接口  HashMap TreeMap    2.Collection接口 package wiki.mrx.www; import java.util.ArrayList; import java.util.Collection; import java.util.Iterator; public class TestCollection { public static void main(String[] args) { //创建对象 Collection col = new ArrayList(); //增 col.add(18); col.add(18); col.add(18); col.add(18); //增强型for循环遍历 for (Object o: col) { System.">
     <meta property="og:site_name" content="gyk&#39;s blog">
     <link rel="stylesheet" href="https://gyk19950104.github.io/css/main.min.7fdf1d02dafd1a6eb5cfd0d707e17e33515b866f5d305a0ab01a4095577484fe.css" integrity="sha256-f98dAtr9Gm61z9DXB&#43;F&#43;M1Fbhm9dMFoKsBpAlVd0hP4=">
     <meta name="generator" content="Hugo 0.73.0" />
@@ -84,7 +84,11 @@
 </li>
 <li>Set子接口
 <ul>
-<li>HashSet实现类</li>
+<li>HashSet实现类
+<ul>
+<li>LinkedHashSet实现类</li>
+</ul>
+</li>
 <li>TreeSet实现类</li>
 </ul>
 </li>
@@ -218,8 +222,10 @@ void linkLast(E e) {
 </code></pre><h3 id="22-set子接口">2.2 Set子接口</h3>
 <p><code>相比于list的有序，不唯一，set接口具有唯一(基本数据类型)，无序的特点，它在遍历时可使用迭代器或者增强型for循环</code></p>
 <h3 id="221-hashset实现类">2.2.1 HashSet实现类</h3>
-<pre><code>
-</code></pre><h3 id="222-treeset实现类">2.2.2 TreeSet实现类</h3>
+<pre><code>hashset的底层实际是：哈希表 = 数组 + 链表
+</code></pre><h4 id="2211-linkedhashset实现类">2.2.1.1 LinkedHashSet实现类</h4>
+<p><code>LinkedHashSet存储的数据是唯一的，按照输入顺序输出的</code></p>
+<h3 id="222-treeset实现类">2.2.2 TreeSet实现类</h3>
 <pre><code>
 </code></pre><h2 id="3map接口">3.Map接口</h2>
 <h3 id="31-hashmap">3.1 HashMap</h3>
